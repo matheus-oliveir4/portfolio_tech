@@ -291,3 +291,15 @@ document.addEventListener('DOMContentLoaded', () => {
   render();
   document.getElementById('year').textContent = new Date().getFullYear();
 });
+
+function openContactModal() {
+  const modal = document.getElementById('contact-modal');
+  modal.classList.remove('hidden');
+}
+
+// Adicione isso junto com seus outros event listeners de modal
+document.querySelectorAll('#contact-modal [data-close="true"]').forEach(element => {
+  element.addEventListener('click', () => {
+    document.getElementById('contact-modal').classList.add('hidden');
+  });
+});

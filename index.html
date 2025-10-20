@@ -46,8 +46,27 @@
     <section id="contato" class="projects-section">
       <div class="container">
         <h3>Contato</h3>
-        <p>Quer ver algo específico ou colaborar? <a href="mailto:seu@email.com">Entre em contato</a>.</p>
+        <p>Quer ver algo específico ou colaborar? 
+          <button onclick="openContactModal()" class="contact-link">Entre em contato</button>
+        </p>
       </div>
+
+<!-- Adicione este modal de contato antes do fechamento do body -->
+<div id="contact-modal" class="modal hidden" role="dialog" aria-hidden="true" aria-labelledby="contact-modal-title">
+  <div class="modal-backdrop" data-close="true"></div>
+  <div class="modal-content" role="document">
+    <button class="modal-close" aria-label="Fechar" data-close="true">&times;</button>
+    <h4 id="contact-modal-title">Escolha como entrar em contato</h4>
+    <div class="contact-options">
+      <a href="https://wa.me/SEU_NUMERO_AQUI" target="_blank" class="contact-button whatsapp">
+        WhatsApp
+      </a>
+      <a href="mailto:SEU_EMAIL_AQUI" class="contact-button email">
+        Email
+      </a>
+    </div>
+  </div>
+</div>
     </section>
   </main>
 
