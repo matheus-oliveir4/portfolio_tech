@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfólio — Power BI & n8n</title>
+  <meta name="description" content="Portfólio de projetos Power BI embutidos e automações n8n." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">Meu Portfólio</h1>
+      <nav class="main-nav">
+        <a href="#powerbi">Power BI</a>
+        <a href="#n8n">n8n</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>Relatórios Power BI embutidos & automações n8n</h2>
+        <p>Explore relatórios interativos e exemplos de automações. Clique em "Ver" para abrir a pré-visualização.</p>
+      </div>
+    </section>
+
+    <section id="powerbi" class="projects-section">
+      <div class="container">
+        <h3>Projetos Power BI</h3>
+        <p class="muted">Relatórios embutidos. Substitua os embeds de exemplo pelos seus URLs/tokens.</p>
+        <div id="powerbi-list" class="projects-grid"></div>
+      </div>
+    </section>
+
+    <section id="n8n" class="projects-section">
+      <div class="container">
+        <h3>Projetos n8n</h3>
+        <p class="muted">Workflows, automações e exemplos: visualize detalhes ou acesse o fluxo.</p>
+        <div id="n8n-list" class="projects-grid"></div>
+      </div>
+    </section>
+
+    <section id="contato" class="projects-section">
+      <div class="container">
+        <h3>Contato</h3>
+        <p>Quer ver algo específico ou colaborar? <a href="mailto:seu@email.com">Me envie um e-mail</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Seu Nome — Portfólio</small>
+    </div>
+  </footer>
+
+  <!-- Modal para visualização / embed -->
+  <div id="preview-modal" class="modal hidden" role="dialog" aria-hidden="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-content" role="document">
+      <button class="modal-close" aria-label="Fechar" data-close="true">&times;</button>
+      <h4 id="modal-title"></h4>
+      <div id="modal-body" class="modal-body"></div>
+      <div class="modal-actions">
+        <button id="copy-embed" class="btn">Copiar código de embed</button>
+        <a id="open-new" class="btn btn-secondary" target="_blank" rel="noopener">Abrir em nova aba</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
