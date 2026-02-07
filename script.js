@@ -1,305 +1,187 @@
-// Dados de exemplo - substitua pelos seus projetos reais.
 const projects = [
   {
-    id: 'pbi-1',
-    type: 'powerbi',
-    title: 'Dashboard Vendas Global',
-    desc: 'Análise completa de vendas por região, produto e temporada com previsões.',
-    embedUrl: 'https://app.powerbi.com/view?r=example1',
-    embedCode: `<iframe title="Dashboard Vendas Global" width="100%" height="600" src="https://app.powerbi.com/view?r=SEU_TOKEN_AQUI" frameborder="0" allowFullScreen="true"></iframe>`
+    id: 'n8n-pulse-energy',
+    category: 'n8n',
+    title: 'Ecosistema de Automação — Pulse Energy',
+    desc: 'Solução robusta que automatiza o ciclo completo de contratação: gera documentos PF/PJ, organiza governança no Dropbox e alimenta banco de dados para métricas em Power BI.',
+    icon: '⚡',
+    imageUrl: 'assets/pulse-energy.png',
+    flow: [
+      { name: 'Webhook Lead', type: 'trigger' },
+      { name: 'Triagem PF/PJ', type: 'logic' },
+      { name: 'Geração de Docs', type: 'action' },
+      { name: 'Cloud Storage (Dropbox)', type: 'action' },
+      { name: 'Notificação Responsável', type: 'action' },
+      { name: 'Ingestão Banco de Dados', type: 'action' }
+    ],
+    embedCode: `{ "actions": ["Contract", "POA", "Dropbox", "SQL Ingestion"], "analytics": "Power BI Integrated" }`
   },
   {
-    id: 'pbi-2',
-    type: 'powerbi',
-    title: 'KPIs Financeiros',
-    desc: 'Métricas financeiras, fluxo de caixa e projeções para tomada de decisão.',
-    embedUrl: 'https://app.powerbi.com/view?r=example2',
-    embedCode: `<iframe title="KPIs Financeiros" width="100%" height="600" src="https://app.powerbi.com/view?r=SEU_TOKEN_AQUI" frameborder="0" allowFullScreen="true"></iframe>`
-  },
-  {
-    id: 'pbi-3',
-    type: 'powerbi',
-    title: 'Analytics RH',
-    desc: 'Indicadores de RH, turnover, satisfação e desenvolvimento de equipe.',
-    embedUrl: 'https://app.powerbi.com/view?r=example3',
-    embedCode: `<iframe title="Analytics RH" width="100%" height="600" src="https://app.powerbi.com/view?r=SEU_TOKEN_AQUI" frameborder="0" allowFullScreen="true"></iframe>`
-  },
-  {
-    id: 'pbi-4',
-    type: 'powerbi',
-    title: 'Performance Marketing',
-    desc: 'Análise de campanhas, ROI, conversões e funil de vendas.',
-    embedUrl: 'https://app.powerbi.com/view?r=example4',
-    embedCode: `<iframe title="Performance Marketing" width="100%" height="600" src="https://app.powerbi.com/view?r=SEU_TOKEN_AQUI" frameborder="0" allowFullScreen="true"></iframe>`
-  },
-  {
-    id: 'pbi-5',
-    type: 'powerbi',
-    title: 'Supply Chain Dashboard',
-    desc: 'Gestão de estoque, logística e otimização da cadeia de suprimentos.',
-    embedUrl: 'https://app.powerbi.com/view?r=example5',
-    embedCode: `<iframe title="Supply Chain Dashboard" width="100%" height="600" src="https://app.powerbi.com/view?r=SEU_TOKEN_AQUI" frameborder="0" allowFullScreen="true"></iframe>`
-  },
-  {
-    id: 'pbi-6',
-    type: 'powerbi',
-    title: 'Customer Success',
-    desc: 'Métricas de satisfação do cliente, NPS e análise de retenção.',
-    embedUrl: 'https://app.powerbi.com/view?r=example6',
-    embedCode: `<iframe title="Customer Success" width="100%" height="600" src="https://app.powerbi.com/view?r=SEU_TOKEN_AQUI" frameborder="0" allowFullScreen="true"></iframe>`
-  },
-
-  // n8n Projects
-  {
-    id: 'n8n-1',
-    type: 'n8n',
-    title: 'Integração CRM-Email',
-    desc: 'Automação de envio de emails baseado em eventos do CRM.',
-    embedUrl: 'https://n8n.example.com/workflow/1',
-    embedCode: `{
-      "nodes": [
-        {"name": "When CRM Updated", "type": "webhook"},
-        {"name": "Send Email", "type": "email"}
-      ]
-    }`
-  },
-  {
-    id: 'n8n-2',
-    type: 'n8n',
-    title: 'Social Media Monitor',
-    desc: 'Monitoramento de menções em redes sociais com notificações.',
-    embedUrl: 'https://n8n.example.com/workflow/2',
-    embedCode: `{
-      "nodes": [
-        {"name": "Social Monitor", "type": "social-trigger"},
-        {"name": "Process Data", "type": "function"}
-      ]
-    }`
-  },
-  {
-    id: 'n8n-3',
-    type: 'n8n',
-    title: 'Backup Automático',
-    desc: 'Backup automático de dados para cloud storage.',
-    embedUrl: 'https://n8n.example.com/workflow/3',
-    embedCode: `{
-      "nodes": [
-        {"name": "Schedule", "type": "cron"},
-        {"name": "Backup", "type": "storage"}
-      ]
-    }`
-  },
-  {
-    id: 'n8n-4',
-    type: 'n8n',
-    title: 'Lead Nurturing',
-    desc: 'Automação de nutrição de leads com conteúdo personalizado.',
-    embedUrl: 'https://n8n.example.com/workflow/4',
-    embedCode: `{
-      "nodes": [
-        {"name": "New Lead", "type": "trigger"},
-        {"name": "Content Flow", "type": "sequence"}
-      ]
-    }`
-  },
-  {
-    id: 'n8n-5',
-    type: 'n8n',
-    title: 'API Integration Hub',
-    desc: 'Hub central de integração entre múltiplas APIs.',
-    embedUrl: 'https://n8n.example.com/workflow/5',
-    embedCode: `{
-      "nodes": [
-        {"name": "API Gateway", "type": "webhook"},
-        {"name": "Route Request", "type": "router"}
-      ]
-    }`
-  },
-  {
-    id: 'n8n-6',
-    type: 'n8n',
-    title: 'Data Sync Engine',
-    desc: 'Sincronização bidirecional entre sistemas internos.',
-    embedUrl: 'https://n8n.example.com/workflow/6',
-    embedCode: `{
-      "nodes": [
-        {"name": "System A Trigger", "type": "webhook"},
-        {"name": "Sync Logic", "type": "function"}
-      ]
-    }`
+    id: 'n8n-pulse',
+    category: 'n8n',
+    title: 'Automação de Contratos — Pulse Facility',
+    desc: 'Sistema end-to-end que automatiza a geração de contratos jurídicos via Webhook, reduzindo o tempo de entrega de dias para segundos e garantindo padronização total.',
+    icon: '📄',
+    imageUrl: 'assets/pulse-flow.png', // User will need to place the image here
+    flow: [
+      { name: 'Webhook Lead', type: 'trigger' },
+      { name: 'Copiando Modelo', type: 'action' },
+      { name: 'Inserindo Dados', type: 'action' },
+      { name: 'Geração PDF/Word', type: 'action' },
+      { name: 'Envio por Email', type: 'action' }
+    ],
+    embedCode: `{ "steps": ["Webhook", "Template Copy", "Doc Generation", "Email Dispatch"], "status": "In Production" }`
   }
 ];
 
 // Utilitários
-const $ = (sel, root = document) => root.querySelector(sel);
-const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+const $ = (sel) => document.querySelector(sel);
+const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 
-function createThumbText(title){
-  // Gera iniciais para um placeholder
-  const parts = title.split(' ').map(s => s[0]).slice(0,2).join('');
-  return parts.toUpperCase();
-}
-
+// Renderização dos Projetos
 function render() {
-  const pbiContainer = $('#powerbi-list');
+  const biContainer = $('#bi-list');
   const n8nContainer = $('#n8n-list');
-  pbiContainer.innerHTML = '';
-  n8nContainer.innerHTML = '';
+
+  if (biContainer) biContainer.innerHTML = biContainer.innerHTML; // Mantém o placeholder se estiver lá
+  if (n8nContainer) n8nContainer.innerHTML = '';
+
+  const biProjects = projects.filter(p => p.category === 'bi');
+  if (biProjects.length > 0 && biContainer) biContainer.innerHTML = ''; // Só limpa se houver projetos reais
 
   projects.forEach(proj => {
     const card = document.createElement('article');
     card.className = 'card';
     card.innerHTML = `
-      <div class="thumb" aria-hidden="true">${createThumbText(proj.title)}</div>
-      <div class="card-body">
-        <h4 class="card-title">${proj.title}</h4>
-        <p class="card-desc">${proj.desc}</p>
-        <div class="card-actions">
-          <button class="btn btn-view" data-id="${proj.id}">Ver</button>
-          <button class="btn btn-embed btn-secondary" data-id="${proj.id}">Código</button>
-        </div>
+      <div class="card-icon">${proj.icon || '📁'}</div>
+      <h4 class="card-title">${proj.title}</h4>
+      <p class="card-desc">${proj.desc}</p>
+      <div class="card-actions">
+        <button class="btn btn-primary btn-view" data-id="${proj.id}">Visualizar</button>
+        <button class="btn btn-secondary btn-code" data-id="${proj.id}">Detalhes Técnicos</button>
       </div>
     `;
-    if (proj.type === 'powerbi') pbiContainer.appendChild(card);
-    else n8nContainer.appendChild(card);
+
+    if (proj.category === 'bi' && biContainer) biContainer.appendChild(card);
+    else if (proj.category === 'n8n' && n8nContainer) n8nContainer.appendChild(card);
   });
 
-  // ligar eventos
-  $$('.btn-view').forEach(btn => btn.addEventListener('click', onView));
-  $$('.btn-embed').forEach(btn => btn.addEventListener('click', onEmbed));
+  // Event Listeners
+  $$('.btn-view').forEach(btn => btn.addEventListener('click', (e) => openProjectModal(e.target.dataset.id, 'view')));
+  $$('.btn-code').forEach(btn => btn.addEventListener('click', (e) => openProjectModal(e.target.dataset.id, 'code')));
 }
 
-function findProjectById(id){
-  return projects.find(p => p.id === id);
-}
-
-// Modal
+// Modal Logic
 const modal = $('#preview-modal');
 const modalTitle = $('#modal-title');
 const modalBody = $('#modal-body');
 const copyBtn = $('#copy-embed');
 const openNew = $('#open-new');
 
-function openModal() {
-  modal.classList.remove('hidden');
-  modal.setAttribute('aria-hidden','false');
-}
-function closeModal() {
-  modal.classList.add('hidden');
-  modal.setAttribute('aria-hidden','true');
-  modalBody.innerHTML = '';
-  modalTitle.textContent = '';
-  copyBtn.dataset.embed = '';
-  openNew.href = '#';
-}
+function openProjectModal(id, mode) {
+  const proj = projects.find(p => p.id === id);
+  if (!proj) return;
 
-function onView(e){
-  const id = e.currentTarget.dataset.id;
-  const proj = findProjectById(id);
-  if(!proj) return;
   modalTitle.textContent = proj.title;
+  modalBody.innerHTML = '';
+  modal.classList.remove('hidden');
 
-  // Se tiver embedUrl, criamos iframe (lazy load)
-  if (proj.embedUrl && proj.type === 'powerbi') {
-    const iframe = document.createElement('iframe');
-    iframe.src = proj.embedUrl;
-    iframe.title = proj.title;
-    iframe.allow = 'fullscreen';
-    modalBody.appendChild(iframe);
-    copyBtn.dataset.embed = proj.embedCode || '';
-    openNew.href = proj.embedUrl;
-    openNew.style.display = 'inline-block';
-  } else if (proj.embedUrl && proj.type === 'n8n') {
-    // Para n8n, abrimos um iframe se for público, senão mostramos o código
-    if (proj.embedUrl.startsWith('http')) {
+  if (mode === 'view') {
+    if (proj.category === 'bi') {
       const iframe = document.createElement('iframe');
       iframe.src = proj.embedUrl;
       iframe.title = proj.title;
+      iframe.allow = 'fullscreen';
       modalBody.appendChild(iframe);
-      copyBtn.dataset.embed = proj.embedCode || '';
-      openNew.href = proj.embedUrl;
       openNew.style.display = 'inline-block';
-    } else {
-      modalBody.textContent = proj.desc || 'Detalhes do projeto n8n.';
-      copyBtn.dataset.embed = proj.embedCode || '';
+      openNew.href = proj.embedUrl;
+    } else if (proj.category === 'n8n') {
+      if (proj.imageUrl) {
+        const img = document.createElement('img');
+        img.src = proj.imageUrl;
+        img.alt = proj.title;
+        img.style.width = '100%';
+        img.style.borderRadius = '8px';
+        img.style.border = '1px solid var(--card-border)';
+        img.style.marginBottom = '1.5rem';
+        img.onerror = function () { this.style.display = 'none'; }; // Hide if image fails to load
+        modalBody.appendChild(img);
+      }
+      renderFlowVisualizer(proj.flow);
       openNew.style.display = 'none';
     }
   } else {
-    modalBody.innerHTML = `<pre style="white-space:pre-wrap">${proj.embedCode || 'Sem embed configurado.'}</pre>`;
-    copyBtn.dataset.embed = proj.embedCode || '';
+    // Mode code / details
+    const pre = document.createElement('pre');
+    pre.className = 'workflow-viewer';
+    pre.textContent = proj.embedCode;
+    modalBody.appendChild(pre);
     openNew.style.display = 'none';
   }
 
-  openModal();
+  copyBtn.onclick = () => {
+    navigator.clipboard.writeText(proj.embedCode);
+    const originalText = copyBtn.textContent;
+    copyBtn.textContent = 'Copiado!';
+    setTimeout(() => copyBtn.textContent = originalText, 2000);
+  };
 }
 
-function onEmbed(e){
-  const id = e.currentTarget.dataset.id;
-  const proj = findProjectById(id);
-  if(!proj) return;
-  modalTitle.textContent = `${proj.title} — Código de embed`;
-  modalBody.innerHTML = `<pre style="white-space:pre-wrap">${proj.embedCode || 'Nenhum código de embed configurado.'}</pre>`;
-  copyBtn.dataset.embed = proj.embedCode || '';
-  openNew.style.display = 'none';
-  openModal();
+function renderFlowVisualizer(flow) {
+  const container = document.createElement('div');
+  container.className = 'workflow-viewer';
+  container.style.display = 'flex';
+  container.style.flexDirection = 'column';
+  container.style.gap = '1rem';
+  container.style.alignItems = 'center';
+
+  flow.forEach((node, index) => {
+    const nodeEl = document.createElement('div');
+    nodeEl.style.padding = '1rem';
+    nodeEl.style.border = '1px solid var(--abyss)';
+    nodeEl.style.borderRadius = '8px';
+    nodeEl.style.background = 'var(--carbon)';
+    nodeEl.style.width = '200px';
+    nodeEl.style.textAlign = 'center';
+    nodeEl.innerHTML = `<strong>${node.name}</strong><br><small style="color:var(--slate-light)">${node.type}</small>`;
+
+    container.appendChild(nodeEl);
+
+    if (index < flow.length - 1) {
+      const arrow = document.createElement('div');
+      arrow.innerHTML = '↓';
+      arrow.style.fontSize = '1.5rem';
+      arrow.style.color = 'var(--abyss)';
+      container.appendChild(arrow);
+    }
+  });
+
+  modalBody.appendChild(container);
 }
 
-function copyEmbed(){
-  const code = copyBtn.dataset.embed || '';
-  if (!code) {
-    alert('Nenhum código de embed definido para este projeto.');
-    return;
-  }
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(code).then(() => {
-      copyBtn.textContent = 'Copiado!';
-      setTimeout(()=> copyBtn.textContent = 'Copiar código de embed', 1800);
-    }).catch(()=> fallbackCopy(code));
-  } else {
-    fallbackCopy(code);
-  }
+function closeModal() {
+  modal.classList.add('hidden');
 }
 
-function fallbackCopy(text){
-  const ta = document.createElement('textarea');
-  ta.value = text;
-  document.body.appendChild(ta);
-  ta.select();
-  try {
-    document.execCommand('copy');
-    alert('Código copiado para a área de transferência.');
-  } catch (err) {
-    prompt('Copie manualmente:', text);
-  } finally {
-    document.body.removeChild(ta);
-  }
-}
-
-// eventos do modal para fechar
-document.addEventListener('click', (ev) => {
-  const target = ev.target;
-  if (target.matches('[data-close="true"]')) closeModal();
-});
-document.addEventListener('keydown', (ev) => {
-  if (ev.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+// Global Listeners for Modal
+document.addEventListener('click', (e) => {
+  if (e.target.dataset.close === 'true') closeModal();
 });
 
-copyBtn.addEventListener('click', copyEmbed);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
 
-// inicializa
+// Init
 document.addEventListener('DOMContentLoaded', () => {
   render();
-  document.getElementById('year').textContent = new Date().getFullYear();
-});
+  $('#year').textContent = new Date().getFullYear();
 
-function openContactModal() {
-  const modal = document.getElementById('contact-modal');
-  modal.classList.remove('hidden');
-}
-
-// Adicione isso junto com seus outros event listeners de modal
-document.querySelectorAll('#contact-modal [data-close="true"]').forEach(element => {
-  element.addEventListener('click', () => {
-    document.getElementById('contact-modal').classList.add('hidden');
+  // Reveal logic for confidential tags
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('blurred')) {
+      e.target.classList.remove('blurred');
+      e.target.classList.add('revealed');
+    }
   });
 });
