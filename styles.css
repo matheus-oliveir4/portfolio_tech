@@ -367,6 +367,14 @@ h4 {
   user-select: none;
   opacity: 0.6;
   cursor: pointer;
+  transition: var(--transition);
+}
+
+.tag-cloud span.blurred:hover {
+  filter: blur(0);
+  opacity: 1;
+  border-color: var(--abyss);
+  background: rgba(63, 82, 134, 0.1);
 }
 
 .tag-cloud span.revealed {
