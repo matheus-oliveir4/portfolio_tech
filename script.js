@@ -74,7 +74,6 @@ function render() {
       <p class="card-desc">${proj.desc}</p>
       <div class="card-actions">
         <button class="btn btn-primary btn-view" data-id="${proj.id}">Visualizar</button>
-        <button class="btn btn-secondary btn-code" data-id="${proj.id}">Detalhes Técnicos</button>
       </div>
     `;
 
@@ -84,7 +83,6 @@ function render() {
 
   // Event Listeners
   $$('.btn-view').forEach(btn => btn.addEventListener('click', (e) => openProjectModal(e.target.dataset.id, 'view')));
-  $$('.btn-code').forEach(btn => btn.addEventListener('click', (e) => openProjectModal(e.target.dataset.id, 'code')));
 }
 
 // Modal Logic
