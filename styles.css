@@ -39,11 +39,10 @@ body {
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background-color: var(--abyss-deep);
+  background-color: var(--bg);
   background-image:
-    radial-gradient(circle at 20% 30%, rgba(63, 82, 134, 0.1) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(53, 60, 67, 0.15) 0%, transparent 40%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M 80 0 L 0 0 0 80' fill='none' stroke='%23DEEBEE' stroke-opacity='0.03' stroke-width='0.5'/%3E%3Ccircle cx='0' cy='0' r='1' fill='%233F5286' fill-opacity='0.3'/%3E%3C/svg%3E");
+    radial-gradient(circle at 0% 0%, var(--abyss-deep) 0%, transparent 40%),
+    radial-gradient(circle at 100% 100%, var(--carbon) 0%, transparent 40%);
   background-attachment: fixed;
   color: var(--text);
   -webkit-font-smoothing: antialiased;
