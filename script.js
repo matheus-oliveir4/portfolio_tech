@@ -31,6 +31,22 @@ const projects = [
       { name: 'Envio por Email', type: 'action' }
     ],
     embedCode: `{ "steps": ["Webhook", "Template Copy", "Doc Generation", "Email Dispatch"], "status": "In Production" }`
+  },
+  {
+    id: 'n8n-sdr-solar',
+    category: 'n8n',
+    title: 'SDR de IA — Setor de Energia Solar',
+    desc: 'Agente inteligente que qualifica leads via WhatsApp, utiliza RAG para consulta de catálogos técnicos e encaminha leads prontos para o time de fechamento.',
+    icon: '☀️',
+    images: ['assets/sdr.png', 'assets/rag.png', 'assets/encaminhndo_lead.png'],
+    flow: [
+      { name: 'Entrada (WhatsApp)', type: 'trigger' },
+      { name: 'Extração & Filtro', type: 'logic' },
+      { name: 'AI Agent (Gemini + RAG)', type: 'action' },
+      { name: 'Memória de Chat (PostgreSQL)', type: 'action' },
+      { name: 'Encaminhamento Closer', type: 'action' }
+    ],
+    embedCode: `{ "ai_models": ["Google Gemini 1.5 Pro"], "storage": ["PostgreSQL Vector", "BigQuery"], "integrations": ["WhatsApp API", "n8n AI Agent"] }`
   }
 ];
 
@@ -96,17 +112,18 @@ function openProjectModal(id, mode) {
       openNew.style.display = 'inline-block';
       openNew.href = proj.embedUrl;
     } else if (proj.category === 'n8n') {
-      if (proj.imageUrl) {
+      // Support for single or multiple images
+      const projectImages = proj.images || (proj.imageUrl ? [proj.imageUrl] : []);
+
+      projectImages.forEach(imgUrl => {
         const img = document.createElement('img');
-        img.src = proj.imageUrl;
+        img.src = imgUrl;
         img.alt = proj.title;
-        img.style.width = '100%';
-        img.style.borderRadius = '8px';
-        img.style.border = '1px solid var(--card-border)';
-        img.style.marginBottom = '1.5rem';
-        img.onerror = function () { this.style.display = 'none'; }; // Hide if image fails to load
+        img.className = 'modal-image';
+        img.onerror = function () { this.style.display = 'none'; };
         modalBody.appendChild(img);
-      }
+      });
+
       renderFlowVisualizer(proj.flow);
       openNew.style.display = 'none';
     }

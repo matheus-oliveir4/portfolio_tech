@@ -299,6 +299,14 @@ h4 {
   border: 1px solid var(--card-border);
 }
 
+.modal-image {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  margin-bottom: 2rem;
+  display: block;
+}
+
 .workflow-viewer {
   background: var(--black);
   padding: 2rem;
