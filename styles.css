@@ -549,6 +549,23 @@ h4 {
   min-height: 100vh;
   justify-content: center;
   align-items: center;
+  overflow: hidden; /* Prevent scroll for the glow effect */
+  position: relative;
+}
+
+.mouse-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(63, 82, 134, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;
+  filter: blur(80px);
 }
 
 .landing-container {
@@ -556,6 +573,7 @@ h4 {
   max-width: 900px;
   padding: 2rem;
   margin: 0 auto;
+  perspective: 1000px; /* Para o efeito 3D Tilt */
 }
 
 .landing-card {
@@ -569,6 +587,12 @@ h4 {
   padding: 3rem;
   backdrop-filter: blur(10px);
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+}
+
+.landing-card:hover {
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.8), 0 0 40px rgba(63, 82, 134, 0.3);
 }
 
 @media (min-width: 768px) {
@@ -608,6 +632,12 @@ h4 {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+@keyframes floating {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
 }
 
 .fallback-icon {

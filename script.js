@@ -328,7 +328,49 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Iniciar interações da Landing Page se os elementos existirem
+  initLandingInteractions();
 });
+
+// --- Interações da Landing Page ---
+
+function initLandingInteractions() {
+  const tiltCard = $('#tilt-card');
+  const mouseGlow = $('#mouse-glow');
+  const typewriterEl = $('#typewriter-text');
+  
+  // 1. Mouse Glow Tracking
+  if (mouseGlow) {
+    window.addEventListener('mousemove', (e) => {
+      mouseGlow.style.left = `${e.clientX}px`;
+      mouseGlow.style.top = `${e.clientY}px`;
+    });
+  }
+
+  // 2. 3D Tilt Effect
+  if (tiltCard) {
+    tiltCard.addEventListener('mousemove', (e) => {
+      const rect = tiltCard.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = (y - centerY) / 10;
+      const rotateY = (centerX - x) / 10;
+      
+      tiltCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    tiltCard.addEventListener('mouseleave', () => {
+      tiltCard.style.transform = `rotateX(0deg) rotateY(0deg)`;
+    });
+  }
+
+  // 3. (Efeito de Digitação Removido - Substituído por Reveal CSS)
+}
 
 function applyLanguage(lang) {
   // Update translation texts
