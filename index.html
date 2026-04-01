@@ -4,174 +4,36 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Matheus Oliveira — Data Specialist</title>
+  <title>Matheus Oliveira — Início</title>
   <meta name="description" content="Especialista em BI, Automações com n8n e Engenharia de Dados." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <h1 class="logo">M.Oliveira</h1>
-      <nav class="main-nav">
-        <a href="#bi" data-i18n="nav_bi">Inteligência de Negócio</a>
-        <a href="#n8n" data-i18n="nav_auto">Automação</a>
-        <a href="#data" data-i18n="nav_data">Arquitetura de Dados</a>
-        <a href="#contato" data-i18n="nav_contact">Contato</a>
-        <div class="lang-switch">
-          <span class="lang-opt active" data-lang="pt">PT</span>
-          <span class="lang-divider">|</span>
-          <span class="lang-opt" data-lang="en">EN</span>
+<body class="landing-body">
+  <main class="landing-container">
+    <div class="landing-card animate-in">
+      <div class="profile-photo-wrapper">
+        <img src="assets/perfil_matheus.jpeg" alt="Foto de Perfil de Matheus Oliveira" class="profile-photo" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23DEEBEE\'%3E%3Cpath d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/%3E%3C/svg%3E'; this.classList.add('fallback-icon');" />
+      </div>
+      
+      <div class="profile-content">
+        <h1 class="landing-title">Matheus Oliveira</h1>
+        <p class="landing-subtitle">Especialista em BI, Automações e Engenharia de Dados</p>
+        <p class="landing-description">Transformando dados complexos em decisões de negócios inteligentes de forma escalável e automatizada.</p>
+        
+        <div class="landing-actions">
+          <a href="portfolio.html" class="btn btn-primary">Acessar Portfólio</a>
+          <a href="curriculo.html" class="btn btn-secondary">Ver Currículo</a>
         </div>
-      </nav>
+      </div>
     </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h2 class="reveal delay-1" data-i18n="hero_title">Transformando dados em decisões inteligentes.</h2>
-        <p class="reveal delay-2" data-i18n="hero_desc">Analista de Dados especializado em ecossistemas de BI modernos, automações de fluxos complexos e
-          infraestrutura de dados escalável.</p>
-      </div>
-    </section>
-
-    <!-- Business Intelligence Section -->
-    <section id="bi" class="projects-section">
-      <div class="container">
-        <div class="section-header reveal">
-          <h3 data-i18n="bi_title">Inteligência de Negócios</h3>
-          <p data-i18n="bi_desc">Dashboards interativos e análises profundas para insights estratégicos.</p>
-        </div>
-        <div id="bi-list" class="projects-grid">
-          <div class="card placeholder-card reveal delay-1">
-            <div class="card-icon">⏳</div>
-            <h4 class="card-title" data-i18n="soon_title">Em breve...</h4>
-            <p class="card-desc" data-i18n="bi_soon_desc">Novos dashboards e análises estratégicas estão sendo preparados.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Automation Section -->
-    <section id="n8n" class="projects-section">
-      <div class="container">
-        <div class="section-header reveal">
-          <h3 data-i18n="auto_title">Automação de Fluxos e Processos</h3>
-          <p data-i18n="auto_desc">Otimização de rotinas e integração de sistemas utilizando n8n.</p>
-        </div>
-        <div id="n8n-list" class="projects-grid"></div>
-      </div>
-    </section>
-
-    <!-- Data Architecture Section -->
-    <section id="data" class="projects-section">
-      <div class="container">
-        <div class="section-header reveal">
-          <h3 data-i18n="data_title">Arquitetura de Dados</h3>
-          <p data-i18n="data_desc">Engenharia e estruturação de pipelines de dados (Em breve).</p>
-        </div>
-        <div id="data-list" class="projects-grid">
-          <div class="card placeholder-card reveal delay-1">
-            <div class="card-icon">🏗️</div>
-            <h4 class="card-title" data-i18n="soon_title_data">Em breve...</h4>
-            <p class="card-desc" data-i18n="data_soon_desc">Estruturação de pipelines e arquitetura de dados em desenvolvimento.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Confidential Projects Section -->
-    <section id="confidential" class="projects-section">
-      <div class="container">
-        <div class="section-header reveal">
-          <h3 data-i18n="conf_title">Experiência Corporativa & Projetos Confidenciais</h3>
-          <p><span data-i18n="conf_desc1">Devido a acordos de confidencialidade (NDA), mais de 30 projetos realizados não podem ser expostos integralmente.</span> <br><strong data-i18n="conf_desc2">Clique nos cards abaixo para revelar os parceiros e ecossistemas explorados.</strong></p>
-        </div>
-
-        <div class="confidential-grid">
-          <div class="confidential-card reveal delay-1">
-            <div class="card-icon">🏢</div>
-            <h4 class="card-title" data-i18n="conf_card1_title">Portfólio de Atendimento</h4>
-            <p class="card-desc" data-i18n="conf_card1_desc">Mais de 30 empresas atendidas com soluções personalizadas de dados:</p>
-            <div class="tag-cloud reveal-interaction">
-              <span class="blurred">Grupo Ramos</span><span class="blurred">Colchões Designer</span><span
-                class="blurred">RD2</span><span class="blurred">VanguardiA</span><span class="blurred">TF
-                Representação</span><span class="blurred">Sputnik</span><span class="blurred">Multivision</span><span
-                class="blurred">WGP</span><span class="blurred">Boatlux</span><span class="blurred">Topclean</span><span
-                class="blurred">Clínica Simetria</span><span class="blurred">Gisbom</span><span class="blurred">Iracema
-                Cred</span><span class="blurred">Maximus Consórcios</span><span class="blurred">Carranca</span><span
-                class="blurred">THR Rastreamento</span><span class="blurred">Auto Shop</span><span
-                class="blurred">C.Brandão</span><span class="blurred">Tulio Parca Advogados</span><span
-                class="blurred">Focco Brasil</span><span class="blurred">America Assistência</span><span
-                class="blurred">Clínica Benedita</span><span class="blurred">EME</span><span class="blurred">Stone
-                One</span><span class="blurred">imunofer</span><span class="blurred">Instituto
-                Márcio</span><span class="blurred">Conceito Imobiliária</span><span class="blurred">Genessys</span><span
-                class="blurred">Vitorino & Murta</span><span class="blurred">ViaVerde</span><span
-                class="blurred">IntegraVI</span>
-            </div>
-          </div>
-
-          <div class="confidential-card reveal delay-2">
-            <div class="card-icon">🔌</div>
-            <h4 class="card-title" data-i18n="conf_card2_title">Ecossistema de Integrações</h4>
-            <p class="card-desc" data-i18n="conf_card2_desc">Implementação de fluxos bidirecionais integrando plataformas como:</p>
-            <div class="tag-cloud">
-              <span>Kommo
-                CRM</span><span>Clint</span><span>Simplifique</span><span>Pipedrive</span><span>Cloudia</span><span>RDStation</span><span>Syncronoss</span><span>API4COM</span>
-            </div>
-          </div>
-
-          <div class="confidential-card reveal delay-3">
-            <div class="card-icon">🐍</div>
-            <h4 class="card-title" data-i18n="conf_card3_title">Engenharia de Dados & ETL</h4>
-            <p class="card-desc" data-i18n="conf_card3_desc">Desenvolvimento de pipelines robustos utilizando:</p>
-            <div class="tag-cloud">
-              <span>Python</span><span>Airflow Orchestration</span><span>BigQuery</span><span>ETL
-                Pipelines</span><span>SQL Optimization</span><span>DAX</span><span>Linguagem M</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contato" class="projects-section">
-      <div class="container">
-        <div class="section-header reveal">
-          <h3 data-i18n="contact_title">Vamos conversar?</h3>
-          <p data-i18n="contact_desc">Seja para um projeto novo ou apenas para trocar ideias sobre dados.</p>
-        </div>
-        <div class="contact-options reveal delay-1">
-          <a href="https://wa.me/558592902582" target="_blank" class="contact-button whatsapp">
-            WhatsApp
-          </a>
-          <a href="mailto:matheus.oliveira6842@gmail.com" target="_blank" class="contact-button email">
-            Email
-          </a>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" style="border:none; margin-top:0;">
     <div class="container">
-      <small>© <span id="year"></span> Matheus Oliveira — <span data-i18n="footer">Portfólio Tech</span></small>
+      <small>© <span id="year"></span> Matheus Oliveira</small>
     </div>
   </footer>
-
-  <!-- Modal Global para Visualização -->
-  <div id="preview-modal" class="modal hidden" role="dialog" aria-hidden="true">
-    <div class="modal-backdrop" data-close="true"></div>
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Fechar" data-close="true">&times;</button>
-      <h4 id="modal-title"></h4>
-      <div id="modal-body" class="modal-body"></div>
-      <div class="modal-actions">
-        <button id="copy-embed" class="btn btn-primary" data-i18n="btn_copy">Copiar Código</button>
-        <a id="open-new" class="btn btn-secondary" target="_blank" rel="noopener" data-i18n="btn_fullscreen">Ver Fullscreen</a>
-      </div>
-    </div>
-  </div>
 
   <script src="script.js" defer></script>
 </body>

@@ -291,7 +291,8 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
   render();
   applyLanguage(currentLang);
-  $('#year').textContent = new Date().getFullYear();
+  const yearEl = $('#year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   // Reveal logic for confidential tags
   document.addEventListener('click', (e) => {
@@ -305,13 +306,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Sticky Header Effect
   const header = $('.site-header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  }
 
   // Language Switch Logic
   $$('.lang-opt').forEach(btn => {
