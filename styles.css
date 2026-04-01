@@ -24,6 +24,9 @@
   --glass: rgba(255, 255, 255, 0.03);
   --radius: 12px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --radius: 12px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -498,6 +501,46 @@ h4 {
 
 .contact-button.email {
   background: #EA4335;
+}
+
+/* ── Skill Bars ── */
+.skill-bars {
+  margin-top: 1.5rem;
+}
+
+.skill-bar-item {
+  margin-bottom: 1.2rem;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dim);
+}
+
+.skill-name-label {
+  color: #fff;
+}
+
+.skill-progress-bg {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--mist), var(--abyss));
+  border-radius: 10px;
+  width: 0;
+  transition: width 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0 0 15px rgba(222, 235, 238, 0.1);
 }
 
 @media (max-width: 768px) {
