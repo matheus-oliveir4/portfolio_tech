@@ -27,6 +27,62 @@
 
   --radius: 12px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Resume System Tokens */
+  --glass-bg: rgba(13, 14, 18, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --accent-bright: #8ea8ff;
+  --transition-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  --card-radius-lg: 24px;
+}
+
+/* ── KPI Components ── */
+.kpi-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .kpi-section {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.kpi-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--card-radius-lg);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  transition: var(--transition-smooth);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.kpi-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent-bright);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.kpi-num {
+  font-size: 3rem;
+  font-weight: 800;
+  font-family: 'Outfit', sans-serif;
+  display: block;
+  margin-bottom: 0.3rem;
+  color: #fff;
+}
+
+.kpi-txt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--slate-light);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 * {
@@ -486,21 +542,56 @@ h4 {
 .contact-button {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  border-radius: 50px;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1.2rem 2.5rem;
+  border-radius: 100px;
   text-decoration: none;
-  color: var(--mist);
-  font-weight: 600;
-  transition: var(--transition);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.contact-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,0.1), transparent);
+  opacity: 0;
+  transition: var(--transition-smooth);
+}
+
+.contact-button:hover::before {
+  opacity: 1;
+}
+
+.contact-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
 .contact-button.whatsapp {
-  background: #25D366;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+}
+
+.contact-button.whatsapp:hover {
+  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
 }
 
 .contact-button.email {
-  background: #EA4335;
+  background: linear-gradient(135deg, #0077FF, #0044BB);
+  box-shadow: 0 10px 20px rgba(0, 119, 255, 0.2);
+}
+
+.contact-button.email:hover {
+  box-shadow: 0 15px 35px rgba(0, 119, 255, 0.4);
 }
 
 /* ── Skill Bars ── */

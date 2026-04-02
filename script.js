@@ -329,16 +329,88 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // --- KPI Count-Up Animation ---
+  const animateValue = (obj, start, end, duration) => {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      obj.innerHTML = Math.floor(progress * (end - start) + start);
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      } else {
+        obj.innerHTML = end + (obj.dataset.target === '99' ? '%' : '+');
+      }
+    };
+    window.requestAnimationFrame(step);
+  };
+
+  const kpiObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const target = parseInt(entry.target.getAttribute('data-target'));
+        animateValue(entry.target, 0, target, 2000);
+        kpiObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.kpi-num').forEach(num => kpiObserver.observe(num));
+
   // Iniciar interações da Landing Page se os elementos existirem
   initLandingInteractions();
 });
 
 // --- Interações da Landing Page ---
 
+// --- Rastreamento Inteligente (n8n Automation) ---
+
+const WEBHOOK_URL = 'https://seu-n8n.webhook.com/rastreamento'; // SUBSTITUA PELA SUA URL DO n8n
+
+async function getVisitorContext() {
+  let location = { city: 'Desconhecido', region: 'Desconhecido', country: 'Desconhecido' };
+  
+  try {
+    const response = await fetch('https://ipapi.co/json/');
+    const data = await response.json();
+    location = { city: data.city, region: data.region, country: data.country_name };
+  } catch (e) { console.warn('Erro ao obter localização:', e); }
+
+  const referrer = document.referrer;
+  let source = 'direto';
+  if (referrer.includes('instagram.com')) source = 'instagram';
+  else if (referrer.includes('linkedin.com')) source = 'linkedin';
+  else if (referrer) source = referrer;
+
+  return {
+    source,
+    location,
+    device: /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop',
+    browser: navigator.userAgent,
+    resolution: `${window.screen.width}x${window.screen.height}`,
+    timestamp: new Date().toISOString()
+  };
+}
+
+async function trackEvent(eventName) {
+  const context = await getVisitorContext();
+  const payload = { event: eventName, ...context };
+
+  console.log(`[Tracking] ${eventName}:`, payload); // Log para debug
+
+  try {
+    fetch(WEBHOOK_URL, {
+      method: 'POST',
+      body: JSON.stringify(payload),
+      headers: { 'Content-Type': 'application/json' },
+      keepalive: true
+    });
+  } catch (e) { console.error('Erro no rastreamento:', e); }
+}
+
 function initLandingInteractions() {
   const tiltCard = $('#tilt-card');
   const mouseGlow = $('#mouse-glow');
-  const typewriterEl = $('#typewriter-text');
   
   // 1. Mouse Glow Tracking
   if (mouseGlow) {
@@ -354,22 +426,22 @@ function initLandingInteractions() {
       const rect = tiltCard.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      const rotateX = (y - centerY) / 10;
-      const rotateY = (centerX - x) / 10;
-      
-      tiltCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      tiltCard.style.transform = `rotateX(${(y - rect.height / 2) / 10}deg) rotateY(${(rect.width / 2 - x) / 10}deg)`;
     });
-
-    tiltCard.addEventListener('mouseleave', () => {
-      tiltCard.style.transform = `rotateX(0deg) rotateY(0deg)`;
-    });
+    tiltCard.addEventListener('mouseleave', () => tiltCard.style.transform = `rotateX(0deg) rotateY(0deg)`);
   }
 
-  // 3. (Efeito de Digitação Removido - Substituído por Reveal CSS)
+  // 3. Webhook: Page View (Landing)
+  if (document.body.classList.contains('landing-body')) {
+    trackEvent('view_landing');
+  }
+
+  // 4. Webhook: Button Clicks
+  const portfolioBtn = $('a[href="portfolio.html"]');
+  const resumeBtn = $('a[href="curriculo.html"]');
+
+  if (portfolioBtn) portfolioBtn.addEventListener('click', () => trackEvent('click_portfolio'));
+  if (resumeBtn) resumeBtn.addEventListener('click', () => trackEvent('click_resume'));
 }
 
 function applyLanguage(lang) {
