@@ -53,6 +53,17 @@ const projects = [
       { name_pt: 'Encaminhamento Closer', name_en: 'Closer Forwarding', type: 'action' }
     ],
     embedCode: `{ "ai_models": ["Google Gemini 1.5 Pro"], "storage": ["PostgreSQL Vector", "BigQuery"], "integrations": ["WhatsApp API", "n8n AI Agent"] }`
+  },
+  {
+    id: 'bi-dashboard-01',
+    category: 'bi',
+    title_pt: 'Dashboard Estratégico — Power BI',
+    title_en: 'Strategic Dashboard — Power BI',
+    desc_pt: 'Dashboard interativo desenvolvido no Power BI com indicadores estratégicos, análise de KPIs e visualizações dinâmicas para suporte à tomada de decisão.',
+    desc_en: 'Interactive dashboard built in Power BI featuring strategic indicators, KPI analysis, and dynamic visualizations to support data-driven decision-making.',
+    icon: '📊',
+    thumbnail: 'assets/bi_starauto.png',
+    embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiOTQ4ZjdlMGUtZTA0YS00NDM4LTkwYzEtZWYxYjFhMTBmYjUzIiwidCI6IjMwYTc3ZWI2LTg4MWItNGU3Yi1iYzRmLTdjMmQ2MTQ4NTNkNSIsImMiOjl9&pageName=ReportSectionc860061da7c65c155d3f'
   }
 ];
 
@@ -163,18 +174,26 @@ function render() {
     const card = document.createElement('article');
     const delayClass = `delay-${(index % 5) + 1}`;
     card.className = `card reveal ${delayClass}`;
+    const previewHtml = proj.thumbnail ? `
+      <div class="card-preview">
+        <img src="${proj.thumbnail}" alt="${currentLang === 'pt' ? proj.title_pt : proj.title_en}" loading="lazy">
+      </div>` : '';
+
     card.innerHTML = `
-      <div class="card-icon">${proj.icon || '📁'}</div>
-      <h4 class="card-title">${currentLang === 'pt' ? proj.title_pt : proj.title_en}</h4>
-      <p class="card-desc">${currentLang === 'pt' ? proj.desc_pt : proj.desc_en}</p>
-      <div class="card-actions">
-        <button class="btn btn-primary btn-view" data-id="${proj.id}">${translations[currentLang].btn_view}</button>
+      ${previewHtml}
+      <div class="card-content">
+        <div class="card-icon">${proj.icon || '📁'}</div>
+        <h4 class="card-title">${currentLang === 'pt' ? proj.title_pt : proj.title_en}</h4>
+        <p class="card-desc">${currentLang === 'pt' ? proj.desc_pt : proj.desc_en}</p>
+        <div class="card-actions">
+          <button class="btn btn-primary btn-view" data-id="${proj.id}">${translations[currentLang].btn_view}</button>
+        </div>
       </div>
     `;
 
     if (proj.category === 'bi' && biContainer) biContainer.appendChild(card);
     else if (proj.category === 'n8n' && n8nContainer) n8nContainer.appendChild(card);
-    
+
     // Add to observer
     observer.observe(card);
   });
@@ -185,6 +204,7 @@ function render() {
 
 // Modal Logic
 const modal = $('#preview-modal');
+const modalContent = modal ? modal.querySelector('.modal-content') : null;
 const modalTitle = $('#modal-title');
 const modalBody = $('#modal-body');
 const copyBtn = $('#copy-embed');
@@ -197,6 +217,9 @@ function openProjectModal(id, mode) {
   modalTitle.textContent = currentLang === 'pt' ? proj.title_pt : proj.title_en;
   modalBody.innerHTML = '';
   modal.classList.remove('hidden');
+  const modalContent = modal.querySelector('.modal-content');
+  if (modalContent) modalContent.classList.toggle('bi-embed', proj.category === 'bi');
+
 
   if (mode === 'view') {
     if (proj.category === 'bi') {
@@ -205,8 +228,6 @@ function openProjectModal(id, mode) {
       iframe.title = proj.title;
       iframe.allow = 'fullscreen';
       modalBody.appendChild(iframe);
-      openNew.style.display = 'inline-block';
-      openNew.href = proj.embedUrl;
     } else if (proj.category === 'n8n') {
       // Support for single or multiple images
       const projectImages = proj.images || (proj.imageUrl ? [proj.imageUrl] : []);
@@ -221,7 +242,6 @@ function openProjectModal(id, mode) {
       });
 
       renderFlowVisualizer(proj.flow);
-      openNew.style.display = 'none';
     }
   } else {
     // Mode code / details
@@ -229,15 +249,23 @@ function openProjectModal(id, mode) {
     pre.className = 'workflow-viewer';
     pre.textContent = proj.embedCode;
     modalBody.appendChild(pre);
-    openNew.style.display = 'none';
   }
 
+  // Gerenciar visibilidade das ações
+  copyBtn.style.display = proj.embedCode ? 'inline-block' : 'none';
+  openNew.style.display = proj.embedUrl ? 'inline-block' : 'none';
+
+  if (proj.embedUrl) openNew.href = proj.embedUrl;
+
   copyBtn.onclick = () => {
-    navigator.clipboard.writeText(proj.embedCode);
-    const originalText = copyBtn.textContent;
-    copyBtn.textContent = 'Copiado!';
-    setTimeout(() => copyBtn.textContent = originalText, 2000);
+    if (proj.embedCode) {
+      navigator.clipboard.writeText(proj.embedCode);
+      const originalText = copyBtn.textContent;
+      copyBtn.textContent = currentLang === 'pt' ? 'Copiado!' : 'Copied!';
+      setTimeout(() => copyBtn.textContent = originalText, 2000);
+    }
   };
+
 }
 
 function renderFlowVisualizer(flow) {
@@ -256,7 +284,7 @@ function renderFlowVisualizer(flow) {
     nodeEl.style.background = 'var(--carbon)';
     nodeEl.style.width = '200px';
     nodeEl.style.textAlign = 'center';
-    
+
     const nodeName = currentLang === 'pt' ? node.name_pt : node.name_en;
     nodeEl.innerHTML = `<strong>${nodeName}</strong><br><small style="color:var(--slate-light)">${node.type}</small>`;
 
@@ -359,7 +387,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Iniciar interações da Landing Page se os elementos existirem
   initLandingInteractions();
+
+  // --- Carousel Logic ---
+  const carousels = document.querySelectorAll('.carousel-container');
+
+  carousels.forEach(container => {
+    const grid = container.querySelector('.projects-grid');
+    const nextBtn = container.querySelector('.carousel-btn.next');
+    const prevBtn = container.querySelector('.carousel-btn.prev');
+
+    if (!grid || !nextBtn || !prevBtn) return;
+
+    const scrollAmount = 900; // Ajustado para a largura otimizada do card de BI
+
+    nextBtn.addEventListener('click', () => {
+      grid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', () => {
+      grid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+
+    // Opcional: Ocultar/Mostrar botões baseado no scroll
+    grid.addEventListener('scroll', () => {
+      const isAtStart = grid.scrollLeft <= 0;
+      const isAtEnd = grid.scrollLeft + grid.offsetWidth >= grid.scrollWidth - 10;
+
+      prevBtn.style.opacity = isAtStart ? '0' : '1';
+      prevBtn.style.pointerEvents = isAtStart ? 'none' : 'auto';
+
+      nextBtn.style.opacity = isAtEnd ? '0' : '1';
+      nextBtn.style.pointerEvents = isAtEnd ? 'none' : 'auto';
+    });
+
+    // Trigger scroll event to init button states
+    grid.dispatchEvent(new Event('scroll'));
+  });
 });
+
 
 // --- Interações da Landing Page ---
 
@@ -369,7 +434,7 @@ const WEBHOOK_URL = 'https://seu-n8n.webhook.com/rastreamento'; // SUBSTITUA PEL
 
 async function getVisitorContext() {
   let location = { city: 'Desconhecido', region: 'Desconhecido', country: 'Desconhecido' };
-  
+
   try {
     const response = await fetch('https://ipapi.co/json/');
     const data = await response.json();
@@ -411,7 +476,7 @@ async function trackEvent(eventName) {
 function initLandingInteractions() {
   const tiltCard = $('#tilt-card');
   const mouseGlow = $('#mouse-glow');
-  
+
   // 1. Mouse Glow Tracking
   if (mouseGlow) {
     window.addEventListener('mousemove', (e) => {
@@ -462,7 +527,7 @@ function applyLanguage(lang) {
       btn.classList.remove('active');
     }
   });
-  
+
   // HTML lang attribute
   document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
 }
