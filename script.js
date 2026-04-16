@@ -64,6 +64,17 @@ const projects = [
     icon: '📊',
     thumbnail: 'assets/bi_starauto.png',
     embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiOTQ4ZjdlMGUtZTA0YS00NDM4LTkwYzEtZWYxYjFhMTBmYjUzIiwidCI6IjMwYTc3ZWI2LTg4MWItNGU3Yi1iYzRmLTdjMmQ2MTQ4NTNkNSIsImMiOjl9&pageName=ReportSectionc860061da7c65c155d3f'
+  },
+  {
+    id: 'bi-dashboard-02',
+    category: 'bi',
+    title_pt: 'Overview Sales — Power BI',
+    title_en: 'Overview Sales — Power BI',
+    desc_pt: 'Dashboard completo de vendas com funil de conversão, Cash Collect, ticket médio, ciclo de vendas e análise por origem de lead, usuário e setor.',
+    desc_en: 'Complete sales dashboard featuring conversion funnel, Cash Collect, average ticket, sales cycle, and analysis by lead source, user, and sector.',
+    icon: '📈',
+    thumbnail: 'assets/bubblemkt.png',
+    embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiNmYyYTBiNzItOWIyOS00MWZkLWI5MjEtOGIzZWMxNDFlZDEyIiwidCI6IjMwYTc3ZWI2LTg4MWItNGU3Yi1iYzRmLTdjMmQ2MTQ4NTNkNSIsImMiOjl9&pageName=ReportSectionc860061da7c65c155d3f'
   }
 ];
 
@@ -137,6 +148,9 @@ const translations = {
 };
 
 let currentLang = localStorage.getItem('lang') || 'pt';
+
+// Cache de iframes BI pré-carregados
+const biFrameCache = {};
 
 // Intersection Observer for scroll animations
 const observerOptions = {
@@ -223,11 +237,31 @@ function openProjectModal(id, mode) {
 
   if (mode === 'view') {
     if (proj.category === 'bi') {
-      const iframe = document.createElement('iframe');
-      iframe.src = proj.embedUrl;
-      iframe.title = proj.title;
-      iframe.allow = 'fullscreen';
-      modalBody.appendChild(iframe);
+      const wrapper = document.createElement('div');
+      wrapper.style.position = 'relative';
+
+      const loader = document.createElement('div');
+      loader.className = 'bi-loader';
+      loader.innerHTML = '<div class="bi-loader-spinner"></div><p>Carregando relatório...</p>';
+      wrapper.appendChild(loader);
+
+      // Reusa iframe pré-carregado se disponível
+      const cached = biFrameCache[proj.id];
+      const iframe = cached || document.createElement('iframe');
+      if (!cached) {
+        iframe.src = proj.embedUrl;
+        iframe.allow = 'fullscreen';
+      }
+      iframe.title = currentLang === 'pt' ? proj.title_pt : proj.title_en;
+      iframe.style.cssText = 'width:100%;aspect-ratio:16/9;height:auto;max-height:78vh;display:block;';
+
+      iframe.addEventListener('load', () => loader.classList.add('hidden'), { once: true });
+      if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
+        loader.classList.add('hidden');
+      }
+
+      wrapper.appendChild(iframe);
+      modalBody.appendChild(wrapper);
     } else if (proj.category === 'n8n') {
       // Support for single or multiple images
       const projectImages = proj.images || (proj.imageUrl ? [proj.imageUrl] : []);
@@ -384,6 +418,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.5 });
 
   document.querySelectorAll('.kpi-num').forEach(num => kpiObserver.observe(num));
+
+  // Pré-carrega iframes de BI em background após 4s
+  setTimeout(() => {
+    projects.filter(p => p.category === 'bi' && p.embedUrl).forEach(proj => {
+      if (biFrameCache[proj.id]) return;
+      const iframe = document.createElement('iframe');
+      iframe.src = proj.embedUrl;
+      iframe.allow = 'fullscreen';
+      iframe.style.cssText = 'position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;';
+      document.body.appendChild(iframe);
+      biFrameCache[proj.id] = iframe;
+    });
+  }, 4000);
 
   // Iniciar interações da Landing Page se os elementos existirem
   initLandingInteractions();
