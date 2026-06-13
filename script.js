@@ -59,11 +59,22 @@ const projects = [
     category: 'bi',
     title_pt: 'Dashboard Estratégico — Power BI',
     title_en: 'Strategic Dashboard — Power BI',
-    desc_pt: 'Dashboard interativo desenvolvido no Power BI com indicadores estratégicos, análise de KPIs e visualizações dinâmicas para suporte à tomada de decisão.',
-    desc_en: 'Interactive dashboard built in Power BI featuring strategic indicators, KPI analysis, and dynamic visualizations to support data-driven decision-making.',
+    desc_pt: 'Dashboard comercial desenvolvido em Power BI para a Star Seguros, com extração de dados via API REST do Kommo CRM e modelagem com DAX avançado, incluindo fórmulas de Time Intelligence. A tela acompanha faturamento, vendas, ticket médio, perdas, taxa de conexão, funil comercial, evolução mensal de leads, vendas por plano, origem dos leads e motivos de perda para identificar gargalos, canais eficientes e oportunidades de melhoria.',
+    desc_en: 'Commercial Power BI dashboard for Star Seguros, with data extracted through the Kommo CRM REST API and modeled with advanced DAX, including Time Intelligence formulas. It tracks revenue, sales, average ticket, lost sales, connection rate, funnel conversion, monthly lead trends, sales by plan, lead sources, and loss reasons to identify bottlenecks, high-performing channels, and improvement opportunities.',
     icon: '📊',
     thumbnail: 'assets/bi_starauto.png',
     embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiOTQ4ZjdlMGUtZTA0YS00NDM4LTkwYzEtZWYxYjFhMTBmYjUzIiwidCI6IjMwYTc3ZWI2LTg4MWItNGU3Yi1iYzRmLTdjMmQ2MTQ4NTNkNSIsImMiOjl9&pageName=ReportSectionc860061da7c65c155d3f'
+  },
+  {
+    id: 'bi-dashboard-02',
+    category: 'bi',
+    title_pt: 'Overview Sales — Power BI',
+    title_en: 'Overview Sales — Power BI',
+    desc_pt: 'Dashboard de Overview Sales desenvolvido em Power BI para acompanhamento comercial ponta a ponta, com visão de valor fechado, volume de vendas, ticket médio (ACV), vendas perdidas, ciclo médio, funil por etapas, evolução de Cash Collect e análises por origem do lead, usuário e setor. A base foi construída com extração do PipeDrive CRM via ETL em Python, orquestração no Airflow e armazenamento no Google BigQuery como data warehouse, garantindo atualização estruturada e suporte à análise gerencial.',
+    desc_en: 'Overview Sales dashboard built in Power BI for end-to-end commercial monitoring, covering closed revenue, sales volume, average ticket (ACV), lost sales, average sales cycle, stage-by-stage funnel, Cash Collect trends, and breakdowns by lead source, user, and sector. The data foundation was built from PipeDrive CRM extraction through ETL in Python, orchestrated with Airflow, and stored in Google BigQuery as the data warehouse, providing structured refreshes and support for management analysis.',
+    icon: '📈',
+    thumbnail: 'assets/bubblemkt.png',
+    embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiNmYyYTBiNzItOWIyOS00MWZkLWI5MjEtOGIzZWMxNDFlZDEyIiwidCI6IjMwYTc3ZWI2LTg4MWItNGU3Yi1iYzRmLTdjMmQ2MTQ4NTNkNSIsImMiOjl9&pageName=ReportSectionc860061da7c65c155d3f'
   }
 ];
 
