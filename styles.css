@@ -857,6 +857,15 @@ h4 {
   box-shadow: 0 15px 35px rgba(0, 119, 255, 0.4);
 }
 
+.contact-button.download {
+  background: linear-gradient(135deg, #8ea8ff, #3f5286);
+  box-shadow: 0 10px 20px rgba(142, 168, 255, 0.2);
+}
+
+.contact-button.download:hover {
+  box-shadow: 0 15px 35px rgba(142, 168, 255, 0.4);
+}
+
 /* ── Skill Bars ── */
 .skill-bars {
   margin-top: 1.5rem;
