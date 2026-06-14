@@ -96,15 +96,192 @@
       <div class="container">
         <div class="section-header reveal">
           <h3 data-i18n="data_title">Arquitetura de Dados</h3>
-          <p data-i18n="data_desc">Engenharia e estruturação de pipelines de dados (Em breve).</p>
+          <p data-i18n="data_desc">Pipeline ETL ponta a ponta com Arquitetura Medalhão, orquestração e entrega de valor ao cliente.</p>
         </div>
-        <div id="data-list" class="projects-grid">
-          <div class="card placeholder-card reveal delay-1">
-            <div class="card-icon">🏗️</div>
-            <h4 class="card-title" data-i18n="soon_title_data">Em breve...</h4>
-            <p class="card-desc" data-i18n="data_soon_desc">Estruturação de pipelines e arquitetura de dados em desenvolvimento.</p>
+
+        <!-- Medallion Architecture Flowchart -->
+        <div class="medallion-flow reveal">
+
+          <!-- Orchestrator Banner -->
+          <div class="flow-orchestrator">
+            <div class="orch-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            </div>
+            <span class="orch-label">Apache Airflow</span>
+            <span class="orch-role">Orquestrador do Pipeline</span>
+            <div class="orch-pulse"></div>
           </div>
-        </div>
+
+          <!-- Flow Steps -->
+          <div class="flow-track">
+
+            <!-- Step 1: Data Sources -->
+            <div class="flow-step" data-step="1">
+              <div class="step-node source-node">
+                <div class="step-icon-wrap source-wrap">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 5v6c0 1.66-4.03 3-9 3S3 12.66 3 11V5"/><path d="M21 11v6c0 1.66-4.03 3-9 3s-9-1.34-9-3v-6"/></svg>
+                </div>
+                <h4 class="step-title">Data Sources</h4>
+                <div class="step-tags">
+                  <span class="step-tag">APIs REST</span>
+                  <span class="step-tag">ERPs/CRMs</span>
+                  <span class="step-tag">CSV/Excel</span>
+                  <span class="step-tag">Databases</span>
+                </div>
+                <p class="step-desc">Ingestão de múltiplas fontes de dados estruturados e semi-estruturados</p>
+              </div>
+              <div class="flow-connector">
+                <div class="connector-line"></div>
+                <div class="connector-arrow">›</div>
+              </div>
+            </div>
+
+            <!-- Step 2: Bronze -->
+            <div class="flow-step" data-step="2">
+              <div class="step-node bronze-node">
+                <div class="step-icon-wrap bronze-wrap">
+                  <span class="medal-badge bronze-badge">1</span>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <h4 class="step-title">Bronze</h4>
+                <span class="step-subtitle">Raw Layer</span>
+                <div class="step-tags">
+                  <span class="step-tag">Dados brutos</span>
+                  <span class="step-tag">Schema-on-read</span>
+                </div>
+                <p class="step-desc">Cópia fiel das fontes sem transformação. Histórico imutável.</p>
+              </div>
+              <div class="flow-connector">
+                <div class="connector-line"></div>
+                <div class="connector-arrow">›</div>
+              </div>
+            </div>
+
+            <!-- Step 3: Silver -->
+            <div class="flow-step" data-step="3">
+              <div class="step-node silver-node">
+                <div class="step-icon-wrap silver-wrap">
+                  <span class="medal-badge silver-badge">2</span>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
+                </div>
+                <h4 class="step-title">Silver</h4>
+                <span class="step-subtitle">Validated Layer</span>
+                <div class="step-tags">
+                  <span class="step-tag">Limpeza</span>
+                  <span class="step-tag">Validação</span>
+                  <span class="step-tag">Tipagem</span>
+                </div>
+                <p class="step-desc">Dados limpos, validados e padronizados. Regras de qualidade aplicadas.</p>
+              </div>
+              <div class="flow-connector">
+                <div class="connector-line"></div>
+                <div class="connector-arrow">›</div>
+              </div>
+            </div>
+
+            <!-- Step 4: Gold -->
+            <div class="flow-step" data-step="4">
+              <div class="step-node gold-node">
+                <div class="step-icon-wrap gold-wrap">
+                  <span class="medal-badge gold-badge">3</span>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+                </div>
+                <h4 class="step-title">Gold</h4>
+                <span class="step-subtitle">Business Layer</span>
+                <div class="step-tags">
+                  <span class="step-tag">KPIs</span>
+                  <span class="step-tag">Métricas</span>
+                  <span class="step-tag">Agregações</span>
+                </div>
+                <p class="step-desc">Modelos dimensionais prontos para consumo. Métricas de negócio calculadas.</p>
+              </div>
+              <div class="flow-connector">
+                <div class="connector-line"></div>
+                <div class="connector-arrow">›</div>
+              </div>
+            </div>
+
+            <!-- Step 5: BigQuery DW -->
+            <div class="flow-step" data-step="5">
+              <div class="step-node bq-node">
+                <div class="step-icon-wrap bq-wrap">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6l8-4 8 4v12l-8 4-8-4z"/><path d="M4 6l8 4 8-4"/><path d="M12 10v12"/></svg>
+                </div>
+                <h4 class="step-title">BigQuery</h4>
+                <span class="step-subtitle">Data Warehouse</span>
+                <div class="step-tags">
+                  <span class="step-tag">Google Cloud</span>
+                  <span class="step-tag">SQL Analytics</span>
+                </div>
+                <p class="step-desc">Armazém central escalável. Consultas analíticas de alto desempenho.</p>
+              </div>
+              <div class="flow-connector">
+                <div class="connector-line"></div>
+                <div class="connector-arrow">›</div>
+              </div>
+            </div>
+
+            <!-- Step 6: Power BI -->
+            <div class="flow-step" data-step="6">
+              <div class="step-node pbi-node">
+                <div class="step-icon-wrap pbi-wrap">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg>
+                </div>
+                <h4 class="step-title">Power BI</h4>
+                <span class="step-subtitle">Data Visualization</span>
+                <div class="step-tags">
+                  <span class="step-tag">DAX</span>
+                  <span class="step-tag">Dashboards</span>
+                  <span class="step-tag">Storytelling</span>
+                </div>
+                <p class="step-desc">Visualizações interativas e relatórios estratégicos com modelagem DAX.</p>
+              </div>
+              <div class="flow-connector">
+                <div class="connector-line"></div>
+                <div class="connector-arrow">›</div>
+              </div>
+            </div>
+
+            <!-- Step 7: Client -->
+            <div class="flow-step" data-step="7">
+              <div class="step-node client-node">
+                <div class="step-icon-wrap client-wrap">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                </div>
+                <h4 class="step-title">Cliente</h4>
+                <span class="step-subtitle">Decisão Estratégica</span>
+                <div class="step-tags">
+                  <span class="step-tag">Insights</span>
+                  <span class="step-tag">Ações</span>
+                </div>
+                <p class="step-desc">Entrega de valor: insights acionáveis para tomada de decisão executiva.</p>
+              </div>
+            </div>
+
+          </div><!-- /flow-track -->
+
+          <!-- Flow Legend -->
+          <div class="flow-legend">
+            <div class="legend-item">
+              <span class="legend-dot" style="background: #cd7f32;"></span>
+              <span>Bronze — Dados Brutos</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot" style="background: #b0b8c9;"></span>
+              <span>Silver — Validados</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot" style="background: #ffd700;"></span>
+              <span>Gold — Negócio</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot" style="background: var(--accent-bright, #8ea8ff);"></span>
+              <span>Infraestrutura</span>
+            </div>
+          </div>
+
+        </div><!-- /medallion-flow -->
+
       </div>
     </section>
 
