@@ -1,0 +1,149 @@
+﻿=== PAGE 1 ===
+Contato Matheus Oliveira
+Caucaia - Ce
+Analista de Dados ETL | Python | SQL | Power BI | Data Viz |
+(85) 99444-7394 (Mobile)
+matheus.oliveira6842@gmail. SaaS | Intelig├¬ncia de Neg├│cios | Fluxo e Automa├º├úo | IA | N8N |
+com StoryTelling | Marketing e Growth | Portf├│lio Ôåÿ´©Å
+www.linkedin.com/in/ Fortaleza, Cear├í, Brasil
+mattheusolipro (LinkedIn)
+portfolio-tech-six.vercel.app Resumo
+(Portfolio)
+Atuo como um parceiro consultivo para ├íreas de neg├│cio, indo al├®m
+Principais compet├¬ncias do t├®cnico para entender a real dor do cliente e sugerir m├®tricas
+n8n que geram impacto. Transformo dados brutos de ERPs (SAP,
+An├ílise de neg├│cios Simplifique), CRMs (Kommo, Clint) e Bancos de Dados (BigQuery,
+SQL) em hist├│rias claras e interativas atrav├®s do Power BI.
+Automa├º├úo de marketing
+Hoje, potencializo o Business Intelligence com a automa├º├úo
+inteligente via n8n, criando um ecossistema onde os dados n├úo
+apenas informam, mas agem:
+Consultoria & BI: Cria├º├úo de dashboards do zero (DAX/Linguagem
+M) para setores de Sa├║de, Varejo, Automotivo e Educa├º├úo, focando
+em KPIs estrat├®gicos.
+Automa├º├úo com n8n & IA: Desenvolvimento de Agentes de IA
+com arquitetura RAG (Supabase/Pinecone), permitindo que LLMs
+acessem dados propriet├írios para suporte e vendas.
+Integra├º├úo de Dados: Experi├¬ncia avan├ºada em consumo de APIs
+e modelagem de dados complexos para automa├º├úo de processos e
+redu├º├úo de custos operacionais.
+Metodologia: Aplica├º├úo de PDCA e DMAIC para garantir a melhoria
+cont├¡nua e a efici├¬ncia das solu├º├Áes entregues.
+Experi├¬ncia
+Grupo Vorp
+Analista de dados
+julho de 2025 - Present (10 meses)
+Fortaleza, Cear├í, Brasil
+Page 1 of 4
+
+=== PAGE 2 ===
+Atuo como um parceiro consultivo para ├íreas de neg├│cio, indo al├®m do
+t├®cnico para entender a real dor do cliente e sugerir m├®tricas que geram
+impacto. Transformo dados brutos de ERPs (SAP, Simplifique), CRMs
+(Kommo, Clint) e Bancos de Dados (BigQuery, Microsoft SQL Server) em
+hist├│rias claras e interativas atrav├®s do Power BI.
+Consultoria & BI: Cria├º├úo de dashboards do zero (DAX/Linguagem M)
+para setores de Sa├║de, Varejo, Automotivo e Educa├º├úo, focando em KPIs
+estrat├®gicos.
+Pulse Energy
+Analista de tecnologia (Dados e Automa├º├úo)
+dezembro de 2024 - Present (1 ano 5 meses)
+Fortaleza, Cear├í, Brasil
+Desenvolvo e mantenho dashboards interativos em Power BI (utilizando DAX
+e
+Linguagem M) para monitoramento de performance comercial e KPIs
+estrat├®gicos,
+fornecendo visibilidade para a gest├úo.
+Realizo modelagem de dados utilizando SQL e Excel, otimizando a estrutura
+de
+dados para an├ílises mais eficientes e precisas.
+Conduzo an├ílises explorat├│rias de dados (EDA) com Python (Pandas,
+NumPy) para
+identificar tend├¬ncias, padr├Áes e gerar insights preditivos.
+Crio scripts em Python para automatizar tarefas rotineiras de coleta,
+tratamento e
+carga de dados (ETL) e elabora├º├úo de documentos, resultando em ganho de
+efici├¬ncia operacional.
+Elaboro relat├│rios peri├│dicos e participo da defini├º├úo de m├®tricas estrat├®gicas,
+suportando a tomada de decis├úo baseada em dados.
+Colaboro no dimensionamento t├®cnico-financeiro de projetos solares,
+desenvolvendo propostas customizadas baseadas em an├ílise de dados e
+necessidades do cliente.
+CobCred
+Analista de dados
+setembro de 2024 - dezembro de 2024 (4 meses)
+Fortaleza, Cear├í, Brasil
+- ETL usando Microsoft SQL Server.
+Page 2 of 4
+
+=== PAGE 3 ===
+- Uso e Implementa├º├úo do Power Bi Getway para manter conex├úo com a fonte
+de dados.
+- Cria├º├úo e manuten├º├úo de Relat├│rios e Dashboards no Power BI.
+- Aplica├º├úo de melhorias no processo da empresa.
+- Analise de dados afim de obter insights valiosos para impulsionar o
+rendimento do setor de opera├º├úo.
+ArthWind Technologies
+Data Inspector
+outubro de 2023 - setembro de 2024 (1 ano)
+Fortaleza, Cear├í, Brazil
+Combinando a expertise de nossos t├®cnicos in loco, com o apoio de nosso
+time de Engenharia e Visibilidade, garantimos um monitoramento minucioso
+e abrangente de todas as etapas de reparos em Blades e constru├º├úo
+de Parques E├│licos. Desde a avalia├º├úo inicial, at├® a conclus├úo de todos
+processos, estamos ao lado de nossos clientes, assegurando a transpar├¬ncia,
+efici├¬ncia, e qualidade em cada interven├º├úo.
+Escopo de atividades:
+Inspe├º├úo externa
+Inspe├º├úo interna
+Controle SR, garantindo que toda a gama de dados coletados em campo
+estejam dentro do padr├úo para serem inspecionados pelo time de visibilidade.
+Aeris Energy
+3 anos 4 meses
+NDT Technician N2 - ASNT
+mar├ºo de 2022 - outubro de 2023 (1 ano 8 meses)
+Caucaia, Cear├í, Brasil
+Realiza├º├úo de ensaios n├úo destrutivos por ultrassom em materiais
+comp├│sitos. Realizando inspe├º├Áes assertivas, dentro do padr├úo exigido pelo
+cliente, seguindo todos os seus procedimentos.
+Experi├¬ncias nos seguintes modelos de p├ís e├│licas :
+WB720 Weg
+Vestas V150/V110.
+Nordex N163
+Experi├¬ncias nas seguintes ferramentas de ultrassom:
+Phased Array.
+AMS-71/73 - Mobile Blade Array Scanner.
+OmniScan SX - Olympus.
+Page 3 of 4
+
+=== PAGE 4 ===
+Epoch 600/650 and XT.
+Olympus LTC
+SIUI Smartor
+Quality Inspector PL
+julho de 2020 - mar├ºo de 2022 (1 ano 9 meses)
+Caucaia, Cear├í, Brasil
+Companhia Sider├║rgica do Pec├®m
+Jovem Aprendiz de Operador Eletromec├ónico.
+janeiro de 2019 - setembro de 2019 (9 meses)
+Ceara
+Execu├º├úo de manuten├º├úo em m├íquinas ind├║striais, focando na manuten├º├úo
+de m├íquinas rotativas (bombas, motores de indu├º├úo etc). Executamento de
+ordens de servi├ºo/cheklist, preenchimento do mesmo.
+Forma├º├úo acad├¬mica
+Est├ício
+An├ílise e desenvolvimento de sistemas , Tecnologia da
+Informa├º├úo ┬À (fevereiro de 2023 - junho de 2025)
+Udemy
+Modelagem de Dados/Armazenagem e Administra├º├úo de Base de
+Dados ┬À (fevereiro de 2025 - abril de 2025)
+Hora de Coda
+Tecnologia da Informa├º├úo ┬À (dezembro de 2025 - abril de 2026)
+Data Sciense Academy
+Microsoft Power BI Para Business Intelligence e Data Science ┬À (setembro de
+2024 - novembro de 2024)
+Data Science Academy
+Linguagem python para analise de dados e data science ┬À (setembro de
+2024 - novembro de 2024)
+Page 4 of 4
+
