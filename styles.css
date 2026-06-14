@@ -361,6 +361,37 @@ h4 {
   }
   .carousel-btn.prev { left: 10px; }
   .carousel-btn.next { right: 10px; }
+
+  .confidential-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .confidential-card {
+    text-align: center;
+  }
+
+  .confidential-card .card-icon {
+    margin: 0 auto 1rem;
+  }
+
+  .tag-cloud {
+    justify-content: center;
+  }
+
+  .section-header {
+    text-align: center;
+  }
+
+  .contact-options {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .contact-button {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 
@@ -707,7 +738,7 @@ h4 {
 /* Confidential Section Styles */
 .confidential-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
   gap: 2rem;
 }
 
@@ -800,6 +831,7 @@ h4 {
   gap: 2rem;
   justify-content: center;
   margin-top: 2rem;
+  flex-wrap: wrap;
 }
 
 .contact-button {
