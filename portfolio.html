@@ -20,6 +20,7 @@
         <a href="#bi" data-i18n="nav_bi">Inteligência de Negócios</a>
         <a href="#n8n" data-i18n="nav_auto">Automação</a>
         <a href="#data" data-i18n="nav_data">Arquitetura de Dados</a>
+        <a href="#infra" data-i18n="nav_infra">Infraestrutura</a>
         <a href="#contato" data-i18n="nav_contact">Contato</a>
         <div class="lang-switch">
           <span class="lang-opt active" data-lang="pt">PT</span>
@@ -282,6 +283,163 @@
 
         </div><!-- /medallion-flow -->
 
+      </div>
+    </section>
+
+    <!-- Infrastructure Section -->
+    <section id="infra" class="projects-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <h3 data-i18n="infra_title">Infraestrutura Cloud</h3>
+          <p data-i18n="infra_desc">Stack de produção containerizada com orquestração, automação e APIs de mensageria.</p>
+        </div>
+
+        <div class="infra-flow reveal">
+
+          <!-- Layer 1: VPS -->
+          <div class="infra-layer vps-layer">
+            <div class="layer-header">
+              <div class="layer-icon-wrap vps-icon-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="6" cy="6" r="1" fill="currentColor"/><circle cx="6" cy="18" r="1" fill="currentColor"/><line x1="10" y1="6" x2="18" y2="6"/><line x1="10" y1="18" x2="18" y2="18"/></svg>
+              </div>
+              <div class="layer-title-group">
+                <h4 class="layer-title">VPS</h4>
+                <span class="layer-subtitle">Servidor Dedicado</span>
+              </div>
+              <div class="layer-tags">
+                <span class="infra-tag">Linux</span>
+                <span class="infra-tag">SSH</span>
+                <span class="infra-tag">Firewall</span>
+              </div>
+            </div>
+
+            <!-- Layer 2: Docker -->
+            <div class="infra-layer docker-layer">
+              <div class="layer-header">
+                <div class="layer-icon-wrap docker-icon-wrap">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="8" width="4" height="4"/><rect x="6" y="8" width="4" height="4"/><rect x="11" y="8" width="4" height="4"/><rect x="6" y="3" width="4" height="4"/><rect x="11" y="3" width="4" height="4"/><rect x="16" y="8" width="4" height="4"/><path d="M2 16c0 0 1 4 10 4s10-4 10-4"/></svg>
+                </div>
+                <div class="layer-title-group">
+                  <h4 class="layer-title">Docker</h4>
+                  <span class="layer-subtitle">Container Runtime</span>
+                </div>
+                <div class="layer-tags">
+                  <span class="infra-tag">Compose</span>
+                  <span class="infra-tag">Networks</span>
+                  <span class="infra-tag">Volumes</span>
+                </div>
+              </div>
+
+              <!-- Layer 3: Portainer -->
+              <div class="infra-layer portainer-layer">
+                <div class="layer-header">
+                  <div class="layer-icon-wrap portainer-icon-wrap">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                  </div>
+                  <div class="layer-title-group">
+                    <h4 class="layer-title">Portainer</h4>
+                    <span class="layer-subtitle">Container Management</span>
+                  </div>
+                  <div class="layer-tags">
+                    <span class="infra-tag">UI Dashboard</span>
+                    <span class="infra-tag">Monitoring</span>
+                  </div>
+                </div>
+
+                <!-- Services Grid -->
+                <div class="infra-services">
+
+                  <div class="service-card postgres-service">
+                    <div class="service-icon-wrap postgres-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 5v6c0 1.66-4.03 3-9 3S3 12.66 3 11V5"/><path d="M21 11v6c0 1.66-4.03 3-9 3s-9-1.34-9-3v-6"/></svg>
+                    </div>
+                    <h5 class="service-name">PostgreSQL</h5>
+                    <span class="service-role">Database</span>
+                    <div class="service-tags">
+                      <span>Relacional</span>
+                      <span>ACID</span>
+                    </div>
+                  </div>
+
+                  <div class="service-card redis-service">
+                    <div class="service-icon-wrap redis-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>
+                    </div>
+                    <h5 class="service-name">Redis</h5>
+                    <span class="service-role">Cache & Queue</span>
+                    <div class="service-tags">
+                      <span>In-Memory</span>
+                      <span>Pub/Sub</span>
+                    </div>
+                  </div>
+
+                  <div class="service-card minio-service">
+                    <div class="service-icon-wrap minio-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6l8-4 8 4v12l-8 4-8-4z"/><path d="M4 6l8 4 8-4"/><path d="M12 10v12"/></svg>
+                    </div>
+                    <h5 class="service-name">MinIO</h5>
+                    <span class="service-role">Object Storage</span>
+                    <div class="service-tags">
+                      <span>S3-Compatible</span>
+                      <span>Buckets</span>
+                    </div>
+                  </div>
+
+                  <div class="service-card n8n-service">
+                    <div class="service-icon-wrap n8n-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="12" r="3"/><circle cx="19" cy="6" r="3"/><circle cx="19" cy="18" r="3"/><line x1="8" y1="12" x2="16" y2="6"/><line x1="8" y1="12" x2="16" y2="18"/></svg>
+                    </div>
+                    <h5 class="service-name">N8N</h5>
+                    <span class="service-role">Automation Engine</span>
+                    <div class="service-tags">
+                      <span>Workflows</span>
+                      <span>APIs</span>
+                    </div>
+                  </div>
+
+                  <div class="service-card evolution-service">
+                    <div class="service-icon-wrap evolution-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                    </div>
+                    <h5 class="service-name">Evolution API</h5>
+                    <span class="service-role">WhatsApp Gateway</span>
+                    <div class="service-tags">
+                      <span>Mensageria</span>
+                      <span>Webhooks</span>
+                    </div>
+                  </div>
+
+                </div><!-- /infra-services -->
+
+              </div><!-- /portainer-layer -->
+            </div><!-- /docker-layer -->
+          </div><!-- /vps-layer -->
+
+          <!-- Connection indicators -->
+          <div class="infra-connections">
+            <div class="conn-item">
+              <span class="conn-dot" style="background: #336791;"></span>
+              <span>Persistência</span>
+            </div>
+            <div class="conn-item">
+              <span class="conn-dot" style="background: #dc382d;"></span>
+              <span>Cache & Filas</span>
+            </div>
+            <div class="conn-item">
+              <span class="conn-dot" style="background: #c72c48;"></span>
+              <span>Armazenamento</span>
+            </div>
+            <div class="conn-item">
+              <span class="conn-dot" style="background: #ff6d5a;"></span>
+              <span>Automação</span>
+            </div>
+            <div class="conn-item">
+              <span class="conn-dot" style="background: #25d366;"></span>
+              <span>Mensageria</span>
+            </div>
+          </div>
+
+        </div><!-- /infra-flow -->
       </div>
     </section>
 

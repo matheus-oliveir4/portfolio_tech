@@ -1301,6 +1301,298 @@ h4 {
   }
 }
 
+/* ══════════════════════════════════════
+   INFRASTRUCTURE STACK FLOWCHART
+   ══════════════════════════════════════ */
+
+.infra-flow {
+  padding: 1.5rem 0;
+}
+
+/* Nested Layers */
+.infra-layer {
+  border-radius: 20px;
+  padding: 1.5rem;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.vps-layer {
+  background: linear-gradient(135deg, rgba(100, 120, 160, 0.06), rgba(100, 120, 160, 0.02));
+  border: 1px solid rgba(100, 120, 160, 0.15);
+}
+
+.docker-layer {
+  background: linear-gradient(135deg, rgba(29, 99, 237, 0.06), rgba(29, 99, 237, 0.02));
+  border: 1px solid rgba(29, 99, 237, 0.15);
+  margin-top: 1rem;
+}
+
+.portainer-layer {
+  background: linear-gradient(135deg, rgba(19, 186, 230, 0.06), rgba(19, 186, 230, 0.02));
+  border: 1px solid rgba(19, 186, 230, 0.12);
+  margin-top: 1rem;
+}
+
+/* Layer Header */
+.layer-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.layer-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.infra-layer:hover > .layer-header > .layer-icon-wrap {
+  transform: scale(1.1);
+}
+
+.vps-icon-wrap {
+  background: rgba(100, 120, 160, 0.15);
+  border: 1px solid rgba(100, 120, 160, 0.3);
+  color: #8a9ec0;
+}
+
+.docker-icon-wrap {
+  background: rgba(29, 99, 237, 0.15);
+  border: 1px solid rgba(29, 99, 237, 0.3);
+  color: #1d63ed;
+}
+
+.portainer-icon-wrap {
+  background: rgba(19, 186, 230, 0.15);
+  border: 1px solid rgba(19, 186, 230, 0.3);
+  color: #13bae6;
+}
+
+.layer-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.layer-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+}
+
+.layer-subtitle {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.layer-tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.infra-tag {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Services Grid */
+.infra-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.4rem 1rem;
+  text-align: center;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  backdrop-filter: blur(8px);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+}
+
+.service-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon-wrap {
+  transform: scale(1.1);
+}
+
+/* Service Colors */
+.postgres-icon {
+  background: rgba(51, 103, 145, 0.15);
+  border: 1px solid rgba(51, 103, 145, 0.3);
+  color: #336791;
+}
+.postgres-service:hover { border-color: rgba(51, 103, 145, 0.5); }
+
+.redis-icon {
+  background: rgba(220, 56, 45, 0.12);
+  border: 1px solid rgba(220, 56, 45, 0.3);
+  color: #dc382d;
+}
+.redis-service:hover { border-color: rgba(220, 56, 45, 0.5); }
+
+.minio-icon {
+  background: rgba(199, 44, 72, 0.12);
+  border: 1px solid rgba(199, 44, 72, 0.3);
+  color: #c72c48;
+}
+.minio-service:hover { border-color: rgba(199, 44, 72, 0.5); }
+
+.n8n-icon {
+  background: rgba(255, 109, 90, 0.12);
+  border: 1px solid rgba(255, 109, 90, 0.3);
+  color: #ff6d5a;
+}
+.n8n-service:hover { border-color: rgba(255, 109, 90, 0.5); }
+
+.evolution-icon {
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.3);
+  color: #25d366;
+}
+.evolution-service:hover { border-color: rgba(37, 211, 102, 0.5); }
+
+.service-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 0.15rem;
+}
+
+.service-role {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.7rem;
+}
+
+.service-tags {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.service-tags span {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.58rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-tags span {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Connections Legend */
+.infra-connections {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.conn-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.conn-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .infra-layer {
+    padding: 1rem;
+  }
+
+  .layer-header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .layer-title-group {
+    align-items: center;
+  }
+
+  .layer-tags {
+    margin-left: 0;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .infra-services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .infra-connections {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .infra-services {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ── Skill Bars ── */
 .skill-bars {
   margin-top: 1.5rem;
