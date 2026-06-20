@@ -79,8 +79,8 @@ const projects = [
   {
     id: 'bi-dashboard-alpha-precatorios',
     category: 'bi',
-    title_pt: 'Dashboard de Compras — Alpha Precatórios',
-    title_en: 'Purchasing Dashboard — Alpha Precatórios',
+    title_pt: 'Overview Comercial e Ligações',
+    title_en: 'Commercial and Calls Overview',
     desc_pt: 'Dashboard comercial de compras de precatórios desenvolvido em Power BI, com acompanhamento de valores fechados e depreciados, leads, conversões, faturamento mensal, oportunidades por entidade devedora, faixas de valor e motivos de descarte.',
     desc_en: 'Commercial Power BI dashboard for receivables purchasing, tracking closed and depreciated values, leads, conversions, monthly revenue, opportunities by debtor entity, value ranges, and discard reasons.',
     icon: '📊',

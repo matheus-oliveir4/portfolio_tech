@@ -20,8 +20,8 @@ test('includes Alpha Precatórios as the third BI project', () => {
 
   assert.equal(biProjects.length, 3);
   assert.equal(alphaProject.id, 'bi-dashboard-alpha-precatorios');
-  assert.equal(alphaProject.title_pt, 'Dashboard de Compras — Alpha Precatórios');
-  assert.equal(alphaProject.title_en, 'Purchasing Dashboard — Alpha Precatórios');
+  assert.equal(alphaProject.title_pt, 'Overview Comercial e Ligações');
+  assert.equal(alphaProject.title_en, 'Commercial and Calls Overview');
   assert.equal(alphaProject.thumbnail, 'assets/alpha_prec.png');
   assert.equal(
     alphaProject.embedUrl,
