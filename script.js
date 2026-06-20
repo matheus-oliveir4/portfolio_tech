@@ -75,6 +75,17 @@ const projects = [
     icon: '📈',
     thumbnail: 'assets/bubblemkt.png',
     embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiNmYyYTBiNzItOWIyOS00MWZkLWI5MjEtOGIzZWMxNDFlZDEyIiwidCI6IjMwYTc3ZWI2LTg4MWItNGU3Yi1iYzRmLTdjMmQ2MTQ4NTNkNSIsImMiOjl9&pageName=ReportSectionc860061da7c65c155d3f'
+  },
+  {
+    id: 'bi-dashboard-alpha-precatorios',
+    category: 'bi',
+    title_pt: 'Dashboard de Compras — Alpha Precatórios',
+    title_en: 'Purchasing Dashboard — Alpha Precatórios',
+    desc_pt: 'Dashboard comercial de compras de precatórios desenvolvido em Power BI, com acompanhamento de valores fechados e depreciados, leads, conversões, faturamento mensal, oportunidades por entidade devedora, faixas de valor e motivos de descarte.',
+    desc_en: 'Commercial Power BI dashboard for receivables purchasing, tracking closed and depreciated values, leads, conversions, monthly revenue, opportunities by debtor entity, value ranges, and discard reasons.',
+    icon: '📊',
+    thumbnail: 'assets/alpha_prec.png',
+    embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiYWVkMGFiNTctYWEwZS00YzM2LWIzMjQtYjk4MmQ0YTM1MzQzIiwidCI6IjMwYTc3ZWI2LTg4MWItNGU3Yi1iYzRmLTdjMmQ2MTQ4NTNkNSIsImMiOjl9&pageName=c299bb07bdf38b8be6d2'
   }
 ];
 
