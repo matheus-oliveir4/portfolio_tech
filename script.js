@@ -81,7 +81,7 @@ const projects = [
     category: 'bi',
     title_pt: 'Overview Comercial e Ligações',
     title_en: 'Commercial and Calls Overview',
-    desc_pt: 'Dashboard comercial de compras de precatórios desenvolvido em Power BI, com acompanhamento de valores fechados e depreciados, leads, conversões, faturamento mensal, oportunidades por entidade devedora, faixas de valor e motivos de descarte.',
+    desc_pt: 'Dashboard integrado de desempenho comercial e ligações desenvolvido em Power BI. A visão de compras acompanha valor e quantidade de fechamentos, ticket médio, valores e volume de oportunidades depreciadas, total de leads, taxas de conversão e variações em relação ao período anterior. Apresenta o funil completo — entrada do lead, filtro de IA, validação, conexão, proposta e fechamento —, evolução mensal do faturamento, oportunidades por entidade devedora, fechamentos por faixa de valor e comprador, além dos principais motivos de descarte. A visão de ligações monitora ligações realizadas, atendidas e conectadas, leads únicos, média de ligações por contato, tempo em linha e duração média, comparando a minutagem e o desempenho individual dos agentes com suas metas. Também permite analisar o volume por dia e faixa horária, segmentado entre ligações, atendimentos, conexões superiores a 40 segundos e chamadas perdidas, com filtros por período, agente e direção da chamada.',
     desc_en: 'Commercial Power BI dashboard for receivables purchasing, tracking closed and depreciated values, leads, conversions, monthly revenue, opportunities by debtor entity, value ranges, and discard reasons.',
     icon: '📊',
     thumbnail: 'assets/alpha_prec.png',

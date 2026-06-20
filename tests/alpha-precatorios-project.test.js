@@ -27,6 +27,13 @@ test('includes Alpha Precatórios as the third BI project', () => {
     alphaProject.embedUrl,
     'https://app.powerbi.com/view?r=eyJrIjoiYWVkMGFiNTctYWEwZS00YzM2LWIzMjQtYjk4MmQ0YTM1MzQzIiwidCI6IjMwYTc3ZWI2LTg4MWItNGU3Yi1iYzRmLTdjMmQ2MTQ4NTNkNSIsImMiOjl9&pageName=c299bb07bdf38b8be6d2'
   );
-  assert.match(alphaProject.desc_pt, /valores fechados e depreciados/i);
+  assert.match(alphaProject.desc_pt, /valor e quantidade de fechamentos/i);
+  assert.match(alphaProject.desc_pt, /período anterior/i);
+  assert.match(alphaProject.desc_pt, /funil completo/i);
+  assert.match(alphaProject.desc_pt, /evolução mensal do faturamento/i);
+  assert.match(alphaProject.desc_pt, /motivos de descarte/i);
+  assert.match(alphaProject.desc_pt, /ligações realizadas, atendidas e conectadas/i);
+  assert.match(alphaProject.desc_pt, /desempenho individual dos agentes/i);
+  assert.match(alphaProject.desc_pt, /faixa horária/i);
   assert.match(alphaProject.desc_en, /closed and depreciated values/i);
 });
