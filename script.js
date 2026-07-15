@@ -243,9 +243,10 @@ function render() {
     const card = document.createElement('article');
     const delayClass = `delay-${(index % 5) + 1}`;
     card.className = `card reveal ${delayClass}`;
-    const previewHtml = proj.thumbnail ? `
+    const previewSrc = proj.thumbnail || proj.imageUrl || (proj.images && proj.images[0]);
+    const previewHtml = previewSrc ? `
       <div class="card-preview">
-        <img src="${proj.thumbnail}" alt="${currentLang === 'pt' ? proj.title_pt : proj.title_en}" loading="lazy">
+        <img src="${previewSrc}" alt="${currentLang === 'pt' ? proj.title_pt : proj.title_en}" loading="lazy">
       </div>` : '';
 
     card.innerHTML = `
@@ -288,15 +289,16 @@ function openProjectModal(id, mode) {
   modalBody.innerHTML = '';
   modal.classList.remove('hidden');
   const modalContent = modal.querySelector('.modal-content');
+  const isMultiImage = !!(proj.images && proj.images.length > 1);
   if (modalContent) {
     modalContent.classList.toggle('bi-embed', proj.category === 'bi');
-    modalContent.classList.toggle('gallery-modal', !!proj.gallery);
+    modalContent.classList.toggle('gallery-modal', !!proj.gallery || isMultiImage);
   }
 
 
   if (mode === 'view') {
     if (proj.gallery) {
-      renderGallery(proj);
+      renderGallery(proj.gallery);
     } else if (proj.category === 'bi') {
       const wrapper = document.createElement('div');
       wrapper.style.position = 'relative';
@@ -324,17 +326,21 @@ function openProjectModal(id, mode) {
       wrapper.appendChild(iframe);
       modalBody.appendChild(wrapper);
     } else if (proj.category === 'n8n') {
-      // Support for single or multiple images
+      // Suporte a imagem única ou múltiplas (galeria com scroll lateral)
       const projectImages = proj.images || (proj.imageUrl ? [proj.imageUrl] : []);
 
-      projectImages.forEach(imgUrl => {
-        const img = document.createElement('img');
-        img.src = imgUrl;
-        img.alt = proj.title;
-        img.className = 'modal-image';
-        img.onerror = function () { this.style.display = 'none'; };
-        modalBody.appendChild(img);
-      });
+      if (projectImages.length > 1) {
+        renderGallery(projectImages);
+      } else {
+        projectImages.forEach(imgUrl => {
+          const img = document.createElement('img');
+          img.src = imgUrl;
+          img.alt = currentLang === 'pt' ? proj.title_pt : proj.title_en;
+          img.className = 'modal-image';
+          img.onerror = function () { this.style.display = 'none'; };
+          modalBody.appendChild(img);
+        });
+      }
 
       renderFlowVisualizer(proj.flow);
     }
@@ -363,8 +369,12 @@ function openProjectModal(id, mode) {
 
 }
 
-// Galeria com scroll lateral (Engenharia de Dados)
-function renderGallery(proj) {
+// Galeria com scroll lateral (aceita strings ou objetos { src, cap_pt, cap_en })
+function renderGallery(images) {
+  const items = images.map(it => (typeof it === 'string' ? { src: it } : it));
+  const capOf = (item) => (currentLang === 'pt' ? item.cap_pt : item.cap_en) || '';
+  const hasCaptions = items.some(it => it.cap_pt || it.cap_en);
+
   const viewer = document.createElement('div');
   viewer.className = 'gallery-viewer';
 
@@ -374,13 +384,14 @@ function renderGallery(proj) {
   const track = document.createElement('div');
   track.className = 'gallery-track';
 
-  proj.gallery.forEach(item => {
+  items.forEach(item => {
     const slide = document.createElement('div');
     slide.className = 'gallery-slide';
     const img = document.createElement('img');
     img.src = item.src;
     img.loading = 'lazy';
-    img.alt = currentLang === 'pt' ? item.cap_pt : item.cap_en;
+    img.alt = capOf(item);
+    img.onerror = function () { this.style.display = 'none'; };
     slide.appendChild(img);
     track.appendChild(slide);
   });
@@ -399,13 +410,16 @@ function renderGallery(proj) {
   stage.appendChild(track);
   stage.appendChild(next);
 
-  const caption = document.createElement('p');
-  caption.className = 'gallery-caption';
-  caption.textContent = currentLang === 'pt' ? proj.gallery[0].cap_pt : proj.gallery[0].cap_en;
+  let caption = null;
+  if (hasCaptions) {
+    caption = document.createElement('p');
+    caption.className = 'gallery-caption';
+    caption.textContent = capOf(items[0]);
+  }
 
   const dots = document.createElement('div');
   dots.className = 'gallery-dots';
-  proj.gallery.forEach((_, i) => {
+  items.forEach((_, i) => {
     const dot = document.createElement('button');
     dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
     dot.setAttribute('aria-label', `${currentLang === 'pt' ? 'Imagem' : 'Image'} ${i + 1}`);
@@ -418,15 +432,14 @@ function renderGallery(proj) {
 
   track.addEventListener('scroll', () => {
     const idx = Math.round(track.scrollLeft / track.clientWidth);
-    const item = proj.gallery[idx];
-    if (item) caption.textContent = currentLang === 'pt' ? item.cap_pt : item.cap_en;
+    if (caption && items[idx]) caption.textContent = capOf(items[idx]);
     dots.querySelectorAll('.gallery-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
     prev.classList.toggle('disabled', idx <= 0);
-    next.classList.toggle('disabled', idx >= proj.gallery.length - 1);
+    next.classList.toggle('disabled', idx >= items.length - 1);
   });
 
   viewer.appendChild(stage);
-  viewer.appendChild(caption);
+  if (caption) viewer.appendChild(caption);
   viewer.appendChild(dots);
   modalBody.appendChild(viewer);
 }
