@@ -728,6 +728,132 @@ h4 {
   display: block;
 }
 
+/* ── Galeria com scroll lateral (Engenharia de Dados) ── */
+.section-subheader {
+  margin-top: 4.5rem;
+}
+
+.modal-content.gallery-modal {
+  width: min(1200px, 96vw);
+  padding: 2rem;
+}
+
+.gallery-viewer {
+  margin-top: 0.5rem;
+}
+
+.gallery-stage {
+  position: relative;
+}
+
+.gallery-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  border-radius: 10px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.gallery-track::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+}
+
+.gallery-slide img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #000;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  display: block;
+}
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--card-border);
+  background: rgba(13, 14, 18, 0.75);
+  backdrop-filter: blur(6px);
+  color: var(--mist);
+  font-size: 1.9rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.gallery-nav:hover {
+  background: var(--abyss);
+  border-color: var(--abyss);
+}
+
+.gallery-nav.prev {
+  left: 0.75rem;
+}
+
+.gallery-nav.next {
+  right: 0.75rem;
+}
+
+.gallery-nav.disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.gallery-caption {
+  margin: 1.25rem auto 0;
+  max-width: 640px;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.gallery-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.gallery-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: none;
+  background: var(--slate);
+  cursor: pointer;
+  padding: 0;
+  transition: var(--transition);
+}
+
+.gallery-dot.active {
+  background: var(--accent-bright);
+  transform: scale(1.25);
+}
+
+@media (max-width: 600px) {
+  .gallery-nav {
+    width: 36px;
+    height: 36px;
+    font-size: 1.5rem;
+  }
+}
+
 .workflow-viewer {
   background: var(--black);
   padding: 2rem;

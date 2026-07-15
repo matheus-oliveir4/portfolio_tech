@@ -86,6 +86,38 @@ const projects = [
     icon: '📊',
     thumbnail: 'assets/alpha_prec.png',
     embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiYWVkMGFiNTctYWEwZS00YzM2LWIzMjQtYjk4MmQ0YTM1MzQzIiwidCI6IjMwYTc3ZWI2LTg4MWItNGU3Yi1iYzRmLTdjMmQ2MTQ4NTNkNSIsImMiOjl9&pageName=c299bb07bdf38b8be6d2'
+  },
+  {
+    id: 'data-etl-medallion',
+    category: 'data',
+    title_pt: 'Pipeline ETL Medalhão — CRM para BigQuery',
+    title_en: 'Medallion ETL Pipeline — CRM to BigQuery',
+    desc_pt: 'Pipeline de engenharia de dados ponta a ponta que extrai dados de CRM e os processa nas camadas Bronze, Prata e Ouro utilizando Python, com orquestração no Apache Airflow e entrega no Google BigQuery como Data Warehouse, consumido no Power BI via conexão direta para modelagem e visualização.',
+    desc_en: 'End-to-end data engineering pipeline that extracts CRM data and processes it through Bronze, Silver and Gold layers using Python, orchestrated with Apache Airflow and delivered to Google BigQuery as the Data Warehouse, consumed in Power BI through a direct connection for modeling and visualization.',
+    icon: '🥇',
+    thumbnail: 'assets/etl_vscode.png',
+    gallery: [
+      {
+        src: 'assets/etl_vscode.png',
+        cap_pt: 'Estrutura do projeto em Python — pipelines Bronze, Prata e Ouro com notebooks, DAGs e transformações de dados.',
+        cap_en: 'Python project structure — Bronze, Silver and Gold pipelines with notebooks, DAGs and data transformations.'
+      },
+      {
+        src: 'assets/etl_airflow.png',
+        cap_pt: 'Orquestração no Apache Airflow — DAG "fibonpipe_medallion_pipeline" com execuções agendadas, monitoradas e com controle de duração por tarefa.',
+        cap_en: 'Apache Airflow orchestration — "fibonpipe_medallion_pipeline" DAG with scheduled, monitored runs and per-task duration tracking.'
+      },
+      {
+        src: 'assets/etl_bigquery.png',
+        cap_pt: 'Data Warehouse no Google BigQuery — camada Ouro (fibonpipe_gold) com tabelas analíticas prontas para consumo.',
+        cap_en: 'Google BigQuery Data Warehouse — Gold layer (fibonpipe_gold) with analytical tables ready for consumption.'
+      },
+      {
+        src: 'assets/etl_powerbi.png',
+        cap_pt: 'Consumo no Power BI — conexão direta ao BigQuery (fibonpipe_gold) importando a camada Ouro para modelagem e visualização.',
+        cap_en: 'Consumption in Power BI — direct connection to BigQuery (fibonpipe_gold) importing the Gold layer for modeling and visualization.'
+      }
+    ]
   }
 ];
 
@@ -93,7 +125,7 @@ const translations = {
   pt: {
     nav_bi: "Inteligência de Negócio",
     nav_auto: "Automação",
-    nav_data: "Arquitetura de Dados",
+    nav_data: "Engenharia de Dados",
     nav_infra: "Infraestrutura",
     nav_contact: "Contato",
     hero_title: "Transformando dados em decisões inteligentes.",
@@ -104,12 +136,14 @@ const translations = {
     bi_soon_desc: "Novos dashboards e análises estratégicas estão sendo preparados.",
     auto_title: "Automação de Fluxos e Processos",
     auto_desc: "Otimização de rotinas e integração de sistemas utilizando n8n.",
-    data_title: "Arquitetura de Dados",
+    data_title: "Engenharia de Dados",
     data_desc: "Pipeline ETL ponta a ponta com Arquitetura Medalhão, orquestração e entrega de valor ao cliente.",
     infra_title: "Infraestrutura Cloud",
     infra_desc: "Stack de produção containerizada com orquestração, automação e APIs de mensageria.",
     soon_title_data: "Em breve...",
     data_soon_desc: "Estruturação de pipelines e arquitetura de dados em desenvolvimento.",
+    data_project_title: "Projeto em Destaque",
+    data_project_desc: "Pipeline medalhão em produção: extração de CRM, processamento em Python e entrega no Data Warehouse. Clique para ver as etapas.",
     conf_title: "Experiência Corporativa e Projetos",
     conf_desc1: "Devido a acordos de confidencialidade (NDA), mais de 30 projetos realizados não podem ser expostos integralmente.",
     conf_desc2: "Clique nos cards abaixo para revelar os parceiros e ecossistemas explorados.",
@@ -129,7 +163,7 @@ const translations = {
   en: {
     nav_bi: "Business Intelligence",
     nav_auto: "Automation",
-    nav_data: "Data Architecture",
+    nav_data: "Data Engineering",
     nav_infra: "Infrastructure",
     nav_contact: "Contact",
     hero_title: "Transforming data into smart decisions.",
@@ -140,12 +174,14 @@ const translations = {
     bi_soon_desc: "New dashboards and strategic analyses are being prepared.",
     auto_title: "Workflow Process Automation",
     auto_desc: "Routine optimization and system integrations using n8n.",
-    data_title: "Data Architecture",
+    data_title: "Data Engineering",
     data_desc: "End-to-end ETL pipeline with Medallion Architecture, orchestration and client value delivery.",
     infra_title: "Cloud Infrastructure",
     infra_desc: "Containerized production stack with orchestration, automation and messaging APIs.",
     soon_title_data: "Coming soon...",
     data_soon_desc: "Pipeline structuring and data architecture currently in development.",
+    data_project_title: "Featured Project",
+    data_project_desc: "Medallion pipeline in production: CRM extraction, Python processing and delivery to the Data Warehouse. Click to see the steps.",
     conf_title: "Corporate Experience & Projects",
     conf_desc1: "Due to Non-Disclosure Agreements (NDA), over 30 completed projects cannot be fully exposed.",
     conf_desc2: "Click on the cards below to reveal our partners and explored ecosystems.",
@@ -194,9 +230,11 @@ const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 function render() {
   const biContainer = $('#bi-list');
   const n8nContainer = $('#n8n-list');
+  const dataContainer = $('#data-list');
 
   if (biContainer) biContainer.innerHTML = biContainer.innerHTML; // Mantém o placeholder se estiver lá
   if (n8nContainer) n8nContainer.innerHTML = '';
+  if (dataContainer) dataContainer.innerHTML = '';
 
   const biProjects = projects.filter(p => p.category === 'bi');
   if (biProjects.length > 0 && biContainer) biContainer.innerHTML = ''; // Só limpa se houver projetos reais
@@ -224,6 +262,7 @@ function render() {
 
     if (proj.category === 'bi' && biContainer) biContainer.appendChild(card);
     else if (proj.category === 'n8n' && n8nContainer) n8nContainer.appendChild(card);
+    else if (proj.category === 'data' && dataContainer) dataContainer.appendChild(card);
 
     // Add to observer
     observer.observe(card);
@@ -249,11 +288,16 @@ function openProjectModal(id, mode) {
   modalBody.innerHTML = '';
   modal.classList.remove('hidden');
   const modalContent = modal.querySelector('.modal-content');
-  if (modalContent) modalContent.classList.toggle('bi-embed', proj.category === 'bi');
+  if (modalContent) {
+    modalContent.classList.toggle('bi-embed', proj.category === 'bi');
+    modalContent.classList.toggle('gallery-modal', !!proj.gallery);
+  }
 
 
   if (mode === 'view') {
-    if (proj.category === 'bi') {
+    if (proj.gallery) {
+      renderGallery(proj);
+    } else if (proj.category === 'bi') {
       const wrapper = document.createElement('div');
       wrapper.style.position = 'relative';
 
@@ -317,6 +361,74 @@ function openProjectModal(id, mode) {
     }
   };
 
+}
+
+// Galeria com scroll lateral (Engenharia de Dados)
+function renderGallery(proj) {
+  const viewer = document.createElement('div');
+  viewer.className = 'gallery-viewer';
+
+  const stage = document.createElement('div');
+  stage.className = 'gallery-stage';
+
+  const track = document.createElement('div');
+  track.className = 'gallery-track';
+
+  proj.gallery.forEach(item => {
+    const slide = document.createElement('div');
+    slide.className = 'gallery-slide';
+    const img = document.createElement('img');
+    img.src = item.src;
+    img.loading = 'lazy';
+    img.alt = currentLang === 'pt' ? item.cap_pt : item.cap_en;
+    slide.appendChild(img);
+    track.appendChild(slide);
+  });
+
+  const prev = document.createElement('button');
+  prev.className = 'gallery-nav prev disabled';
+  prev.setAttribute('aria-label', currentLang === 'pt' ? 'Anterior' : 'Previous');
+  prev.innerHTML = '‹';
+
+  const next = document.createElement('button');
+  next.className = 'gallery-nav next';
+  next.setAttribute('aria-label', currentLang === 'pt' ? 'Próximo' : 'Next');
+  next.innerHTML = '›';
+
+  stage.appendChild(prev);
+  stage.appendChild(track);
+  stage.appendChild(next);
+
+  const caption = document.createElement('p');
+  caption.className = 'gallery-caption';
+  caption.textContent = currentLang === 'pt' ? proj.gallery[0].cap_pt : proj.gallery[0].cap_en;
+
+  const dots = document.createElement('div');
+  dots.className = 'gallery-dots';
+  proj.gallery.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `${currentLang === 'pt' ? 'Imagem' : 'Image'} ${i + 1}`);
+    dot.addEventListener('click', () => track.scrollTo({ left: track.clientWidth * i, behavior: 'smooth' }));
+    dots.appendChild(dot);
+  });
+
+  prev.addEventListener('click', () => track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' }));
+  next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth, behavior: 'smooth' }));
+
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / track.clientWidth);
+    const item = proj.gallery[idx];
+    if (item) caption.textContent = currentLang === 'pt' ? item.cap_pt : item.cap_en;
+    dots.querySelectorAll('.gallery-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+    prev.classList.toggle('disabled', idx <= 0);
+    next.classList.toggle('disabled', idx >= proj.gallery.length - 1);
+  });
+
+  viewer.appendChild(stage);
+  viewer.appendChild(caption);
+  viewer.appendChild(dots);
+  modalBody.appendChild(viewer);
 }
 
 function renderFlowVisualizer(flow) {
