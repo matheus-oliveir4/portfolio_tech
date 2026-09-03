@@ -1,0 +1,99 @@
+/* A página mantém integralmente o layout e os movimentos de portfolio.html.
+   Este arquivo altera somente a identidade visual para preto e branco. */
+body.trama-page {
+  --mist: #fff;
+  --black: #000;
+  --abyss: #fff;
+  --abyss-deep: #000;
+  --carbon: #000;
+  --slate: #fff;
+  --slate-light: rgba(255, 255, 255, .68);
+  --bg: #000;
+  --card-bg: rgba(255, 255, 255, .035);
+  --card-border: rgba(255, 255, 255, .14);
+  --text: #fff;
+  --text-muted: rgba(255, 255, 255, .68);
+  --accent: #fff;
+  --glass: rgba(255, 255, 255, .03);
+  --glass-bg: rgba(255, 255, 255, .035);
+  --glass-border: rgba(255, 255, 255, .14);
+  --accent-bright: #fff;
+  background-color: #000;
+  background-image: none;
+  padding-top: 94px;
+}
+
+.trama-page .site-header,
+.trama-page .site-header.scrolled {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(0, 0, 0, .94);
+}
+.trama-logo {
+  display: flex;
+  width: 180px;
+  height: 46px;
+  align-items: center;
+  background: none;
+  -webkit-text-fill-color: initial;
+}
+.trama-logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.trama-page .main-nav a:hover { color: #fff; }
+.trama-page .lang-opt.active { color: #000; background: #fff; }
+
+.trama-page .hero { position: relative; overflow: hidden; isolation: isolate; }
+.trama-page .hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  right: -8%;
+  width: min(78vw, 1120px);
+  aspect-ratio: 4 / 1;
+  background: url("../assets/%5Bhorizontal%5D%20logo%20branco.png") center / contain no-repeat;
+  opacity: .075;
+  transform: translateY(-50%) scale(1.15);
+  pointer-events: none;
+}
+.trama-page .hero .container { position: relative; z-index: 1; }
+
+.trama-page .card:hover,
+.trama-page .confidential-card:hover,
+.trama-page .kpi-card:hover { border-color: rgba(255, 255, 255, .38); box-shadow: 0 20px 40px rgba(0, 0, 0, .55), 0 0 20px rgba(255, 255, 255, .08); }
+.trama-page .btn-primary { color: #000; background: #fff; }
+.trama-page .btn-primary::after { background: rgba(0, 0, 0, .08); }
+.trama-page .btn-secondary { color: #fff; border-color: rgba(255, 255, 255, .35); }
+.trama-page .btn-secondary:hover { color: #000; background: #fff; }
+
+.trama-page .step-icon-wrap,
+.trama-page .service-icon-wrap,
+.trama-page .orch-icon,
+.trama-page .layer-icon-wrap {
+  color: #fff !important;
+  background: rgba(255, 255, 255, .07) !important;
+  border-color: rgba(255, 255, 255, .24) !important;
+}
+.trama-page .medal-badge { color: #000 !important; background: #fff !important; }
+.trama-page .step-subtitle,
+.trama-page .orch-label { color: #fff !important; }
+.trama-page .legend-dot,
+.trama-page .conn-dot { background: #fff !important; }
+.trama-page .flow-orchestrator,
+.trama-page .infra-layer { border-color: rgba(255, 255, 255, .15); background: rgba(255, 255, 255, .025); }
+.trama-page .connector-line { background: linear-gradient(90deg, rgba(255, 255, 255, .5), rgba(255, 255, 255, .12)); }
+.trama-page .connector-arrow { color: rgba(255, 255, 255, .6); }
+.trama-page .confidential-card::before { color: #000; background: #fff; }
+.trama-page .contact-button.whatsapp { color: #fff; border-color: #fff; background: #000; }
+.trama-page .contact-button.whatsapp:hover { color: #000; background: #fff; }
+.trama-page .contact-button.email { color: #000; border-color: #fff; background: #fff; }
+.trama-page .service-icon-wrap img { filter: grayscale(1) brightness(2); }
+
+@media (max-width: 768px) {
+  body.trama-page { padding-top: 87px; }
+  .trama-logo { width: 150px; height: 39px; }
+  .trama-page .hero::after { right: -24%; width: 135vw; opacity: .065; }
+}

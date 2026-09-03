@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <base href="../">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>Matheus Oliveira | Portfólio</title>
+  <meta name="description" content="Especialista em BI, Automações com n8n e Engenharia de Dados." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="trama/trama.css?v=20260902-2" />
+  <link rel="preconnect" href="https://app.powerbi.com" crossorigin />
+  <link rel="dns-prefetch" href="https://app.powerbi.com" />
+</head>
+
+<body class="trama-page">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo trama-logo" href="/trama/#inicio" aria-label="TRAMA, início">
+        <img src="assets/%5Bhorizontal%5D%20logo%20branco.png" alt="TRAMA">
+      </a>
+      <nav class="main-nav">
+        <a href="/trama/#inicio" class="home-link">Início</a>
+        <a href="/trama/#bi" data-i18n="nav_bi">Inteligência de Negócios</a>
+        <a href="/trama/#n8n" data-i18n="nav_auto">Automação</a>
+        <a href="/trama/#data" data-i18n="nav_data">Engenharia de Dados</a>
+        <a href="/trama/#infra" data-i18n="nav_infra">Infraestrutura</a>
+        <a href="/trama/#contato" data-i18n="nav_contact">Contato</a>
+        <div class="lang-switch">
+          <span class="lang-opt active" data-lang="pt">PT</span>
+          <span class="lang-divider">|</span>
+          <span class="lang-opt" data-lang="en">EN</span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="container">
+        <h2 class="reveal delay-1" data-i18n="hero_title">Transformando dados em decisões inteligentes.</h2>
+        <p class="reveal delay-2" data-i18n="hero_desc">Analista de Dados especializado em ecossistemas de BI modernos,
+          automações de fluxos complexos e
+          infraestrutura de dados escalável.</p>
+      </div>
+    </section>
+
+    <!-- KPI Section Evolution -->
+    <section class="kpis-area">
+      <div class="container">
+        <div class="kpi-section">
+          <div class="kpi-card reveal">
+            <span class="kpi-num" data-target="40">0</span>
+            <span class="kpi-txt">Clientes Atendidos</span>
+          </div>
+          <div class="kpi-card reveal">
+            <span class="kpi-num" data-target="10">0</span>
+            <span class="kpi-txt">Setores Atendidos</span>
+          </div>
+          <div class="kpi-card reveal">
+            <span class="kpi-num" data-target="5">0</span>
+            <span class="kpi-txt">Anos de Impacto</span>
+          </div>
+          <div class="kpi-card reveal">
+            <span class="kpi-num" data-target="99">0</span>
+            <span class="kpi-txt">Uptime de Fluxos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Business Intelligence Section -->
+    <section id="bi" class="projects-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <h3 data-i18n="bi_title">Inteligência de Negócios</h3>
+          <p data-i18n="bi_desc">Dashboards interativos e análises profundas para insights estratégicos.</p>
+        </div>
+        <div id="bi-list" class="projects-grid">
+          <div class="card placeholder-card reveal delay-1">
+            <div class="card-icon">⏳</div>
+            <h4 class="card-title" data-i18n="soon_title">Em breve...</h4>
+            <p class="card-desc" data-i18n="bi_soon_desc">Novos dashboards e análises estratégicas estão sendo
+              preparados.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Automation Section -->
+    <section id="n8n" class="projects-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <h3 data-i18n="auto_title">Automação de Fluxos e Processos</h3>
+          <p data-i18n="auto_desc">Otimização de rotinas e integração de sistemas utilizando n8n.</p>
+        </div>
+        <div id="n8n-list" class="projects-grid"></div>
+      </div>
+    </section>
+
+    <!-- Data Architecture Section -->
+    <section id="data" class="projects-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <h3 data-i18n="data_title">Engenharia de Dados</h3>
+          <p data-i18n="data_desc">Pipeline ETL ponta a ponta com Arquitetura Medalhão, orquestração e entrega de valor
+            ao cliente.</p>
+        </div>
+
+        <!-- Medallion Architecture Flowchart -->
+        <div class="medallion-flow reveal">
+
+          <!-- Orchestrator Banner -->
+          <div class="flow-orchestrator">
+            <div class="orch-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3" />
+                <path
+                  d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+              </svg>
+            </div>
+            <span class="orch-label">Apache Airflow</span>
+            <span class="orch-role">Orquestrador do Pipeline</span>
+            <div class="orch-pulse"></div>
+          </div>
+
+          <!-- Flow Steps -->
+          <div class="flow-track">
+
+            <!-- Step 1: Data Sources -->
+            <div class="flow-step" data-step="1">
+              <div class="step-node source-node">
+                <div class="step-icon-wrap source-wrap">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <ellipse cx="12" cy="5" rx="9" ry="3" />
+                    <path d="M21 5v6c0 1.66-4.03 3-9 3S3 12.66 3 11V5" />
+                    <path d="M21 11v6c0 1.66-4.03 3-9 3s-9-1.34-9-3v-6" />
+                  </svg>
+                </div>
+                <h4 class="step-title">Data Sources</h4>
+                <div class="step-tags">
+                  <span class="step-tag">APIs REST</span>
+                  <span class="step-tag">ERPs/CRMs</span>
+                  <span class="step-tag">CSV/Excel</span>
+                  <span class="step-tag">Databases</span>
+                </div>
+                <p class="step-desc">Ingestão de múltiplas fontes de dados estruturados e semi-estruturados</p>
+              </div>
+              <div class="flow-connector">
+                <div class="connector-line"></div>
+                <div class="connector-arrow">›</div>
+              </div>
+            </div>
+
+            <!-- Step 2: Bronze -->
+            <div class="flow-step" data-step="2">
+              <div class="step-node bronze-node">
+                <div class="step-icon-wrap bronze-wrap">
+                  <span class="medal-badge bronze-badge">1</span>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                    <polyline points="14,2 14,8 20,8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                  </svg>
+                </div>
+                <h4 class="step-title">Bronze</h4>
+                <span class="step-subtitle">Raw Layer</span>
+                <div class="step-tags">
+                  <span class="step-tag">Dados brutos</span>
+                  <span class="step-tag">Schema-on-read</span>
+                </div>
+                <p class="step-desc">Cópia fiel das fontes sem transformação. Histórico imutável.</p>
+              </div>
+              <div class="flow-connector">
+                <div class="connector-line"></div>
+                <div class="connector-arrow">›</div>
+              </div>
+            </div>
+
+            <!-- Step 3: Silver -->
+            <div class="flow-step" data-step="3">
+              <div class="step-node silver-node">
+                <div class="step-icon-wrap silver-wrap">
+                  <span class="medal-badge silver-badge">2</span>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                    <polyline points="22,4 12,14.01 9,11.01" />
+                  </svg>
+                </div>
+                <h4 class="step-title">Silver</h4>
+                <span class="step-subtitle">Validated Layer</span>
+                <div class="step-tags">
+                  <span class="step-tag">Limpeza</span>
+                  <span class="step-tag">Validação</span>
+                  <span class="step-tag">Tipagem</span>
+                </div>
+                <p class="step-desc">Dados limpos, validados e padronizados. Regras de qualidade aplicadas.</p>
+              </div>
+              <div class="flow-connector">
+                <div class="connector-line"></div>
+                <div class="connector-arrow">›</div>
+              </div>
+            </div>
+
+            <!-- Step 4: Gold -->
+            <div class="flow-step" data-step="4">
+              <div class="step-node gold-node">
+                <div class="step-icon-wrap gold-wrap">
+                  <span class="medal-badge gold-badge">3</span>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <polygon
+                      points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+                  </svg>
+                </div>
+                <h4 class="step-title">Gold</h4>
+                <span class="step-subtitle">Business Layer</span>
+                <div class="step-tags">
+                  <span class="step-tag">KPIs</span>
+                  <span class="step-tag">Métricas</span>
+                  <span class="step-tag">Agregações</span>
+                </div>
+                <p class="step-desc">Modelos dimensionais prontos para consumo. Métricas de negócio calculadas.</p>
+              </div>
+              <div class="flow-connector">
+                <div class="connector-line"></div>
+                <div class="connector-arrow">›</div>
+              </div>
+            </div>
+
+            <!-- Step 5: BigQuery DW -->
+            <div class="flow-step" data-step="5">
+              <div class="step-node bq-node">
+                <div class="step-icon-wrap bq-wrap">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M4 6l8-4 8 4v12l-8 4-8-4z" />
+                    <path d="M4 6l8 4 8-4" />
+                    <path d="M12 10v12" />
+                  </svg>
+                </div>
+                <h4 class="step-title">BigQuery</h4>
+                <span class="step-subtitle">Data Warehouse</span>
+                <div class="step-tags">
+                  <span class="step-tag">Google Cloud</span>
+                  <span class="step-tag">SQL Analytics</span>
+                </div>
+                <p class="step-desc">Armazém central escalável. Consultas analíticas de alto desempenho.</p>
+              </div>
+              <div class="flow-connector">
+                <div class="connector-line"></div>
+                <div class="connector-arrow">›</div>
+              </div>
+            </div>
+
+            <!-- Step 6: Power BI -->
+            <div class="flow-step" data-step="6">
+              <div class="step-node pbi-node">
+                <div class="step-icon-wrap pbi-wrap">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="3" y="12" width="4" height="9" rx="1" />
+                    <rect x="10" y="7" width="4" height="14" rx="1" />
+                    <rect x="17" y="3" width="4" height="18" rx="1" />
+                  </svg>
+                </div>
+                <h4 class="step-title">Power BI</h4>
+                <span class="step-subtitle">Data Visualization</span>
+                <div class="step-tags">
+                  <span class="step-tag">DAX</span>
+                  <span class="step-tag">Dashboards</span>
+                  <span class="step-tag">Storytelling</span>
+                </div>
+                <p class="step-desc">Visualizações interativas e relatórios estratégicos com modelagem DAX.</p>
+              </div>
+              <div class="flow-connector">
+                <div class="connector-line"></div>
+                <div class="connector-arrow">›</div>
+              </div>
+            </div>
+
+            <!-- Step 7: Client -->
+            <div class="flow-step" data-step="7">
+              <div class="step-node client-node">
+                <div class="step-icon-wrap client-wrap">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 00-3-3.87" />
+                    <path d="M16 3.13a4 4 0 010 7.75" />
+                  </svg>
+                </div>
+                <h4 class="step-title">Cliente</h4>
+                <span class="step-subtitle">Decisão Estratégica</span>
+                <div class="step-tags">
+                  <span class="step-tag">Insights</span>
+                  <span class="step-tag">Ações</span>
+                </div>
+                <p class="step-desc">Entrega de valor: insights acionáveis para tomada de decisão executiva.</p>
+              </div>
+            </div>
+
+          </div><!-- /flow-track -->
+
+          <!-- Flow Legend -->
+          <div class="flow-legend">
+            <div class="legend-item">
+              <span class="legend-dot" style="background: #cd7f32;"></span>
+              <span>Bronze — Dados Brutos</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot" style="background: #b0b8c9;"></span>
+              <span>Silver — Validados</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot" style="background: #ffd700;"></span>
+              <span>Gold — Negócio</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot" style="background: var(--accent-bright, #8ea8ff);"></span>
+              <span>Infraestrutura</span>
+            </div>
+          </div>
+
+        </div><!-- /medallion-flow -->
+
+        <!-- Featured Data Engineering Project -->
+        <div class="section-header section-subheader reveal">
+          <h3 data-i18n="data_project_title">Projeto em Destaque</h3>
+          <p data-i18n="data_project_desc">Pipeline medalhão em produção: extração de CRM, processamento em Python
+            e entrega no Data Warehouse. Clique para ver as etapas.</p>
+        </div>
+        <div id="data-list" class="projects-grid"></div>
+
+      </div>
+    </section>
+
+    <!-- Infrastructure Section -->
+    <section id="infra" class="projects-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <h3 data-i18n="infra_title">Infraestrutura Cloud</h3>
+          <p data-i18n="infra_desc">Stack de produção containerizada com orquestração, automação e APIs de mensageria.
+          </p>
+        </div>
+
+        <div class="infra-flow reveal">
+
+          <!-- Layer 1: VPS -->
+          <div class="infra-layer vps-layer">
+            <div class="layer-header">
+              <div class="layer-icon-wrap vps-icon-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="2" y="2" width="20" height="8" rx="2" />
+                  <rect x="2" y="14" width="20" height="8" rx="2" />
+                  <circle cx="6" cy="6" r="1" fill="currentColor" />
+                  <circle cx="6" cy="18" r="1" fill="currentColor" />
+                  <line x1="10" y1="6" x2="18" y2="6" />
+                  <line x1="10" y1="18" x2="18" y2="18" />
+                </svg>
+              </div>
+              <div class="layer-title-group">
+                <h4 class="layer-title">VPS</h4>
+                <span class="layer-subtitle">Servidor Dedicado</span>
+              </div>
+              <div class="layer-tags">
+                <span class="infra-tag">Linux</span>
+                <span class="infra-tag">SSH</span>
+                <span class="infra-tag">Firewall</span>
+              </div>
+            </div>
+
+            <!-- Layer 2: Docker -->
+            <div class="infra-layer docker-layer">
+              <div class="layer-header">
+                <div class="layer-icon-wrap docker-icon-wrap">
+                  <img src="assets/social.png" alt="Docker" width="28" height="28" style="object-fit: contain;">
+                </div>
+                <div class="layer-title-group">
+                  <h4 class="layer-title">Docker</h4>
+                  <span class="layer-subtitle">Container Runtime</span>
+                </div>
+                <div class="layer-tags">
+                  <span class="infra-tag">Compose</span>
+                  <span class="infra-tag">Networks</span>
+                  <span class="infra-tag">Volumes</span>
+                </div>
+              </div>
+
+              <!-- Layer 3: Portainer -->
+              <div class="infra-layer portainer-layer">
+                <div class="layer-header">
+                  <div class="layer-icon-wrap portainer-icon-wrap">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="1.8">
+                      <rect x="3" y="3" width="7" height="7" rx="1" />
+                      <rect x="14" y="3" width="7" height="7" rx="1" />
+                      <rect x="3" y="14" width="7" height="7" rx="1" />
+                      <rect x="14" y="14" width="7" height="7" rx="1" />
+                    </svg>
+                  </div>
+                  <div class="layer-title-group">
+                    <h4 class="layer-title">Portainer</h4>
+                    <span class="layer-subtitle">Container Management</span>
+                  </div>
+                  <div class="layer-tags">
+                    <span class="infra-tag">UI Dashboard</span>
+                    <span class="infra-tag">Monitoring</span>
+                  </div>
+                </div>
+
+                <!-- Services Grid -->
+                <div class="infra-services">
+
+                  <div class="service-card postgres-service">
+                    <div class="service-icon-wrap postgres-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <ellipse cx="12" cy="5" rx="9" ry="3" />
+                        <path d="M21 5v6c0 1.66-4.03 3-9 3S3 12.66 3 11V5" />
+                        <path d="M21 11v6c0 1.66-4.03 3-9 3s-9-1.34-9-3v-6" />
+                      </svg>
+                    </div>
+                    <h5 class="service-name">PostgreSQL</h5>
+                    <span class="service-role">Database</span>
+                    <div class="service-tags">
+                      <span>Relacional</span>
+                      <span>ACID</span>
+                    </div>
+                  </div>
+
+                  <div class="service-card redis-service">
+                    <div class="service-icon-wrap redis-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <polygon points="13,2 3,14 12,14 11,22 21,10 12,10" />
+                      </svg>
+                    </div>
+                    <h5 class="service-name">Redis</h5>
+                    <span class="service-role">Cache & Queue</span>
+                    <div class="service-tags">
+                      <span>In-Memory</span>
+                      <span>Pub/Sub</span>
+                    </div>
+                  </div>
+
+                  <div class="service-card minio-service">
+                    <div class="service-icon-wrap minio-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <path d="M4 6l8-4 8 4v12l-8 4-8-4z" />
+                        <path d="M4 6l8 4 8-4" />
+                        <path d="M12 10v12" />
+                      </svg>
+                    </div>
+                    <h5 class="service-name">MinIO</h5>
+                    <span class="service-role">Object Storage</span>
+                    <div class="service-tags">
+                      <span>S3-Compatible</span>
+                      <span>Buckets</span>
+                    </div>
+                  </div>
+
+                  <div class="service-card n8n-service">
+                    <div class="service-icon-wrap n8n-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <circle cx="5" cy="12" r="3" />
+                        <circle cx="19" cy="6" r="3" />
+                        <circle cx="19" cy="18" r="3" />
+                        <line x1="8" y1="12" x2="16" y2="6" />
+                        <line x1="8" y1="12" x2="16" y2="18" />
+                      </svg>
+                    </div>
+                    <h5 class="service-name">N8N</h5>
+                    <span class="service-role">Automation Engine</span>
+                    <div class="service-tags">
+                      <span>Workflows</span>
+                      <span>APIs</span>
+                    </div>
+                  </div>
+
+                  <div class="service-card evolution-service">
+                    <div class="service-icon-wrap evolution-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                      </svg>
+                    </div>
+                    <h5 class="service-name">Evolution API</h5>
+                    <span class="service-role">WhatsApp Gateway</span>
+                    <div class="service-tags">
+                      <span>Mensageria</span>
+                      <span>Webhooks</span>
+                    </div>
+                  </div>
+
+                </div><!-- /infra-services -->
+
+              </div><!-- /portainer-layer -->
+            </div><!-- /docker-layer -->
+          </div><!-- /vps-layer -->
+
+          <!-- Connection indicators -->
+          <div class="infra-connections">
+            <div class="conn-item">
+              <span class="conn-dot" style="background: #336791;"></span>
+              <span>Persistência</span>
+            </div>
+            <div class="conn-item">
+              <span class="conn-dot" style="background: #dc382d;"></span>
+              <span>Cache & Filas</span>
+            </div>
+            <div class="conn-item">
+              <span class="conn-dot" style="background: #c72c48;"></span>
+              <span>Armazenamento</span>
+            </div>
+            <div class="conn-item">
+              <span class="conn-dot" style="background: #ff6d5a;"></span>
+              <span>Automação</span>
+            </div>
+            <div class="conn-item">
+              <span class="conn-dot" style="background: #25d366;"></span>
+              <span>Mensageria</span>
+            </div>
+          </div>
+
+        </div><!-- /infra-flow -->
+      </div>
+    </section>
+
+    <!-- Confidential Projects Section -->
+    <section id="confidential" class="projects-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <h3 data-i18n="conf_title">Experiência Corporativa e Projetos</h3>
+        </div>
+
+        <div class="confidential-grid">
+          <div class="confidential-card reveal delay-1">
+            <div class="card-icon">🏢</div>
+            <h4 class="card-title" data-i18n="conf_card1_title">Portfólio de Atendimento</h4>
+            <p class="card-desc" data-i18n="conf_card1_desc">Mais de 30 empresas atendidas com soluções personalizadas
+              de dados:</p>
+            <div class="tag-cloud">
+              <span>Grupo Vorp</span><span>Pulse Energy</span><span>Petit Enfant</span><span>Remafe</span><span>ABN
+                Protege</span><span>Paulo Pinho Advogados</span><span>Grupo Ramos</span><span>Colchões
+                Designer</span><span>RD2</span><span>VanguardiA</span><span>TF
+                Representação</span><span>Sputnik</span><span>Multivision</span><span>WGP</span><span>Boatlux</span><span>Topclean</span><span>Clínica
+                Simetria</span><span>Gisbom</span><span>Iracema Cred</span><span>Maximus
+                Consórcios</span><span>Carranca</span><span>THR Rastreamento</span><span>Auto
+                Shop</span><span>C.Brandão</span><span>Tulio Parca Advogados</span><span>Focco
+                Brasil</span><span>America Assistência</span><span>Clínica Benedita</span><span>EME</span><span>Stone
+                One</span><span>imunofer</span><span>Instituto Márcio</span><span>Conceito
+                Imobiliária</span><span>Genessys</span><span>Vitorino &
+                Murta</span><span>ViaVerde</span><span>IntegraVI</span>
+            </div>
+          </div>
+
+          <div class="confidential-card reveal delay-2">
+            <div class="card-icon">🔌</div>
+            <h4 class="card-title" data-i18n="conf_card2_title">Ecossistema de Integrações</h4>
+            <p class="card-desc" data-i18n="conf_card2_desc">Implementação de fluxos bidirecionais integrando
+              plataformas como:</p>
+            <div class="tag-cloud">
+              <span>Kommo
+                CRM</span><span>Clint</span><span>Simplifique</span><span>Pipedrive</span><span>Cloudia</span><span>RDStation</span><span>Syncronoss</span><span>API4COM</span>
+            </div>
+          </div>
+
+          <div class="confidential-card reveal delay-3">
+            <div class="card-icon">🐍</div>
+            <h4 class="card-title" data-i18n="conf_card3_title">Engenharia de Dados & ETL</h4>
+            <p class="card-desc" data-i18n="conf_card3_desc">Desenvolvimento de pipelines robustos utilizando:</p>
+            <div class="tag-cloud">
+              <span>Python</span><span>Airflow Orchestration</span><span>BigQuery</span><span>ETL
+                Pipelines</span><span>SQL Optimization</span><span>DAX</span><span>Linguagem M</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="projects-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <h3 data-i18n="contact_title">Vamos conversar?</h3>
+          <p data-i18n="contact_desc">Seja para um projeto novo ou apenas para trocar ideias sobre dados.</p>
+        </div>
+        <div class="contact-options reveal delay-1">
+          <a href="https://wa.me/5585994447394?text=Olá%20Matheus,%20vi%20seu%20portfólio%20e%20gostaria%20de%20entrar%20em%20contato"
+            target="_blank" class="contact-button whatsapp">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+            </svg>
+            WhatsApp
+          </a>
+          <a href="mailto:matheus.oliveira6842@gmail.com" target="_blank" class="contact-button email">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,12 2,6" />
+            </svg>
+            Email
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Matheus Oliveira — <span data-i18n="footer">Portfólio</span></small>
+    </div>
+  </footer>
+
+  <!-- Modal Global para Visualização -->
+  <div id="preview-modal" class="modal hidden" role="dialog" aria-hidden="true">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Fechar" data-close="true">&times;</button>
+      <h4 id="modal-title"></h4>
+      <div id="modal-body" class="modal-body"></div>
+      <div class="modal-actions">
+        <button id="copy-embed" class="btn btn-primary" data-i18n="btn_copy">Copiar Código</button>
+        <a id="open-new" class="btn btn-secondary" target="_blank" rel="noopener" data-i18n="btn_fullscreen">Ver
+          Fullscreen</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+
+</html>
